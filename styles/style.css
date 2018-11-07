@@ -1,0 +1,12 @@
+.login, .signUp{
+  background-color:black;
+}
+
+#loginPage{
+  width:450px;
+    margin-left: 35%;
+    margin-right: 35%;
+    position: absolute;
+    top: 20%;
+  }
+
