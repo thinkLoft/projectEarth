@@ -58,9 +58,5 @@ typings/
 .env
 
 # next.js build output
-<<<<<<< HEAD
 .next
 package-lock.json
-=======
-.next
->>>>>>> 8e8b5b875ffb8f541ce30f99d59a532d6022c202
