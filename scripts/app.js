@@ -27,7 +27,8 @@ $(document).ready(function() {
   // ================================
 
   // LOGIN LISTENER
-  $(document).on("click", "#login", function() {
+  $(document).on("click", "#loginbtn", function(event) {
+    event.preventDefault();
     email = $("#email")
       .val()
       .trim();
@@ -55,7 +56,8 @@ $(document).ready(function() {
   });
 
   // LOGOUT LISTENER
-  $(document).on("click", "#logout", function() {
+  $(document).on("click", "#logout", function(event) {
+    event.preventDefault();
     firebase
       .auth()
       .signOut()
@@ -73,7 +75,8 @@ $(document).ready(function() {
   });
 
   // SIGN UP  LISTENER
-  $(document).on("click", "#signUp", function() {
+  $(document).on("click", "#signUp", function(event) {
+    event.preventDefault();
     email = $("#email")
       .val()
       .trim();
