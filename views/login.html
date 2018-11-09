@@ -10,7 +10,8 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../styles/style.css">
-  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <script src="../scripts/app.js"></script>
 
 </head>
 
@@ -22,14 +23,14 @@
       <div id="loginForm" class="form-group">
         <h1 id="loginHead">Free Time</h1>
         <br>
-        <input type="email" class="form-control email" placeholder="E-Mail">
+        <input id="email" type="email" class="form-control email" placeholder="E-Mail">
         <br>
-        <input type="password" class="form-control password" placeholder="Password">
+        <input id="password" type="password" class="form-control password" placeholder="Password">
         <br>
         <div id="buttons">
 
-          <button class="btn btn-primary login">Login</button>
-          <button class="btn btn-primary signUp">Sign Up</button>
+          <button id="loginbtn" class="btn btn-primary login">Login</button>
+          <button id="signUp" class="btn btn-primary signUp">Sign Up</button>
 
         </div>
       </div>
