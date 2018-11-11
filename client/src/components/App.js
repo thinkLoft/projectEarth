@@ -4,20 +4,37 @@ import "./App.css";
 import Navigation from "./Navigation";
 import Login from "./login/";
 import LandingPage from "./Landing";
-import SignUpPage from "./SignUp";
-import SignInPage from "./SignIn";
+import SignUpPage from "./signup/";
+import SignInPage from "./signin/";
 import PasswordForgetPage from "./PasswordForget";
 import HomePage from "./Home";
 import AccountPage from "./Account";
+import { firebase } from "../firebase";
 
 import * as routes from "../constants/routes";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null
+    };
+  }
+
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null });
+    });
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <Navigation />
+          <Navigation authUser={this.state.authUser} />
           <hr />
           <Route exact path={routes.LANDING} component={LandingPage} />
           <Route exact path={routes.SIGN_UP} component={SignUpPage} />
