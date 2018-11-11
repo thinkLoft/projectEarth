@@ -1,0 +1,11 @@
+ul{
+  border-style: outset;
+  height: 50px;
+  padding: 25px;
+  background-color:white;
+}
+
+a{
+  padding-right: 25px;
+  color:black;
+}
