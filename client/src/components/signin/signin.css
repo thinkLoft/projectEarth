@@ -2,7 +2,14 @@
   width: 450px;
   height: 600px;
   position: absolute;
-  margin-left: 25%;
+  margin-left: 0%;
   margin-right: 35%;
   top: 20%;
+}
+
+#signIn{
+  margin-top: 25px;
+  width: 500px;
+  height: 600px;
+  margin-bottom: 25px;
 }
