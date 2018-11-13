@@ -5,7 +5,7 @@ import * as routes from "../../constants/routes";
 import "./signin.css";
 
 const SignInPage = ({ history }) => (
-  <div>
+  <div id="signIn" class="container">
     <SignInForm history={history} />
   </div>
 );

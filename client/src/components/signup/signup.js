@@ -58,7 +58,7 @@ class SignUpForm extends Component {
 
     return (
       <div id="loginPage" className="container">
-        <form id="login" onSubmit={this.onSubmit}>
+        <form id="logins" onSubmit={this.onSubmit}>
           <div id="loginForm" className="form-group">
             <h1 id="loginHead">Sign Up Page</h1>
             <br />
