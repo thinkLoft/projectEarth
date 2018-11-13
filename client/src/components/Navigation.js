@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
-import './Navigation.css';
+import "./Navigation.css";
 
 const Navigation = ({ authUser }) => (
   <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
