@@ -1,23 +1,18 @@
 import React from "react";
-import './Account.css';
+import "./Account.css";
+import UserCalendar from "../UserCalendar";
 
 const AccountPage = () => (
-  <div id="addTime" class="container">
-    <div class="container calendar">
-      Calendar will go here
+  <div id="addTime" className="container">
+    <div className="container calendar">
+      <UserCalendar />
     </div>
-    <div class="row date">
-      Date will go here
+    <div className="row date">Date will go here</div>
+    <div className="row range">
+      <div className="col rangeBegin">Start</div>
+      <div className="col rangeEnd">End</div>
     </div>
-    <div class="row range">
-      <div class="col rangeBegin">
-        Start
-      </div>
-      <div class="col rangeEnd">
-        End
-      </div>
-    </div>
-    <button class="btn btn-primary add">Add</button>
+    <button className="btn btn-primary add">Add</button>
   </div>
 );
 

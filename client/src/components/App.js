@@ -10,6 +10,7 @@ import PasswordForgetPage from "./PasswordForget";
 import HomePage from "./Home";
 import AccountPage from "./Account";
 import { firebase } from "../firebase";
+import Availability from "./Availability";
 
 import * as routes from "../constants/routes";
 
@@ -47,6 +48,7 @@ class App extends Component {
           <Route exact path={routes.HOME} component={HomePage} />
           <Route exact path={routes.ACCOUNT} component={AccountPage} />
           <Route exact path={routes.LOGIN} component={Login} />
+          <Route exact path={routes.AVAILABILITY} component={Availability} />
         </div>
       </Router>
     );
