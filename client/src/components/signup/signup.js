@@ -5,7 +5,7 @@ import * as routes from "../../constants/routes";
 import "./signup.css";
 
 const SignUpPage = ({ history }) => (
-  <div>
+  <div id="signUp" class="container">
     <SignUpForm history={history} />
   </div>
 );
@@ -58,7 +58,7 @@ class SignUpForm extends Component {
 
     return (
       <div id="loginPage" className="container">
-        <form id="login" onSubmit={this.onSubmit}>
+        <form id="logins" onSubmit={this.onSubmit}>
           <div id="loginForm" className="form-group">
             <h1 id="loginHead">Sign Up Page</h1>
             <br />
@@ -107,7 +107,9 @@ class SignUpForm extends Component {
           </div>
         </form>
       </div>
+
     );
+
   }
 }
 
@@ -116,6 +118,7 @@ const SignUpLink = () => (
     Don't have an account? <Link to={routes.SIGN_UP}>Sign Up</Link>
   </p>
 );
+
 
 export default withRouter(SignUpPage);
 

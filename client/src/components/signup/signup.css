@@ -3,10 +3,17 @@
   background-color: black;
 }
 
-#loginPage {
+#logins {
   width: 450px;
-  margin-left: 35%;
-  margin-right: 35%;
+  height: 600px;
   position: absolute;
-  top: 20%;
+  margin-left: 0%;
+  margin-right: 35%;
+}
+
+#signUp{
+  margin-top: 25px;
+  width: 500px;
+  height: 600px;
+  margin-bottom: 25px;
 }

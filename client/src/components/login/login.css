@@ -5,8 +5,11 @@
 
 #loginPage {
   width: 450px;
-  margin-left: 35%;
-  margin-right: 35%;
+  height: 600px;
   position: absolute;
+  margin-left: 25%;
+  margin-right: 35%;
   top: 20%;
 }
+
+
