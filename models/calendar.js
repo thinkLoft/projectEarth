@@ -7,11 +7,11 @@ let calenderSchema = new Schema({
   //userEmail, intially commenting out required: true for testing
   userEmail: {
     type: String,
-    //required: true,
+    required: true,
     unique: true
   },
   //link for the article
-  Name: {
+  name: {
     type: String
     /*,
     required: true*/

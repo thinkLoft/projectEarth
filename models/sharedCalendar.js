@@ -4,6 +4,10 @@ import Mongoose from 'mongoose';
 const Schema = Mongoose.Schema;
 //create schema for comments
 const sharedCalenderSchema = new Schema({
+  masterCalenderId: {
+    type: String,
+    required: false
+  },
   //date
   startDate: {
     type: Date
