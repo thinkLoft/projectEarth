@@ -1,7 +1,7 @@
 //require in mongoose npm package
-import Mongoose from 'mongoose';
+const mongoose = require('mongoose');
 //create a new schema model
-const Schema = Mongoose.Schema;
+const Schema = mongoose.Schema;
 //create calenderSchema
 let calenderSchema = new Schema({
   //userEmail, intially commenting out required: true for testing
@@ -28,4 +28,4 @@ let calenderSchema = new Schema({
 });
 //create the article model with the articleSchema
 const myCalender = mongoose.model('myCalender', calenderSchema);
-export default myCalender;
+module.exports = myCalender;
