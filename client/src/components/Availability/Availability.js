@@ -3,7 +3,7 @@ import './Availability.css';
 
 const AvailabilityPage = () => (
   <div id="seeTime" className="container">
-    <div class="container detailedCalendar">Calendar will go here</div>
+    <div className="container detailedCalendar">Calendar will go here</div>
   </div>
 );
 
