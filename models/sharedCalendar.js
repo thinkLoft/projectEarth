@@ -1,7 +1,7 @@
 //require in mongoose npm package
-import Mongoose from 'mongoose';
+const mongoose = require('mongoose');
 //create a new schema class
-const Schema = Mongoose.Schema;
+const Schema = mongoose.Schema;
 //create schema for comments
 const sharedCalenderSchema = new Schema({
   masterCalenderId: {
