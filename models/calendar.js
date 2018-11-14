@@ -17,10 +17,9 @@ let calenderSchema = new Schema({
     required: true*/
   },
   //personal Calendar
-  personalCalendar: [{ startDate: { type: Date }, endDate: { type: Date } }],
-
+  personalCalendar: { startDate: [{ type: Date }], endDate: [{ type: Date }] },
   //association with other people for shared calenders
-  comments: [
+  masterCalender: [
     {
       type: Schema.Types.ObjectId,
       ref: 'masterCalender'
