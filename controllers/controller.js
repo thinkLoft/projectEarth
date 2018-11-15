@@ -2,11 +2,20 @@
 const db = require('../models/export.js');
 //create a simplified object from calling on database
 module.exports = {
+  findEverything: function(req, res) {
+    db.myCalender
+      .find()
+      .then(personal => res.json(personal + ' Success'))
+      .catch(error =>
+        res.status(422).json(error + ' Sorry, something went wrong')
+      );
+  },
+
   //create a new user
   newUser: function(req, res) {
     db.myCalender
-      .create({ userEmail: req.body, name: req.body })
-      .then(personal => res.json(personal + ' Sucess'))
+      .create({ userEmail: req.body.userEmail, name: req.body.name })
+      .then(personal => res.json(personal + ' Success'))
       .catch(error =>
         res.status(422).json(error + ' Sorry, something went wrong')
       );

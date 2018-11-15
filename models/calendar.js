@@ -1,5 +1,6 @@
 //require in mongoose npm package
 const mongoose = require('mongoose');
+const validator = require('validator');
 //create a new schema model
 const Schema = mongoose.Schema;
 //create calenderSchema
@@ -8,7 +9,12 @@ let calenderSchema = new Schema({
   userEmail: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    validate: {
+      validator: validator.isEmail,
+      message: '{VALUE} is not a valid email',
+      isAsync: false
+    }
   },
   //link for the article
   name: {

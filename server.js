@@ -23,12 +23,17 @@ app.use(express.json());
 //use routes file
 app.use(routes);
 //locally connect mongoose to mongo db under specified name; in production use heroku's addons
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/projectearth');
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/projectearth',
+  { useNewUrlParser: true }
+);
 // Send every request to the React app
 // Define any API routes before this runs
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
 });
+//'./client/build/index.html'
 //listen in on port
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
