@@ -1,11 +1,11 @@
-//an extra file so shared calender and personal calender can be hit under one route
-//require in router
+const path = require('path');
 const router = require('express').Router();
-//require in routes files
-const myCalender = require('./routes.js');
-
-// personal user calender
-//future...supporting shared calender
-router.use('/calender', myCalender);
-//export file router
+const myCalenderRoutes = require('./personalCalender');
+//personal calender routes
+router.use('/personal', myCalenderRoutes);
+//if no routes hit, send to React application
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+//export file for server use
 module.exports = router;
