@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import Form from "./Form";
+import Form from "./Form";
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -31,9 +31,10 @@ class ModalExample extends React.Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          {/* <Form /> */}
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>Form goes here.</ModalBody>
+          <ModalHeader toggle={this.toggle}>
+            Please enter your availability
+          </ModalHeader>
+          <Form />
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>
               Submit
