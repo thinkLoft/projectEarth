@@ -1,14 +1,15 @@
-ul{
-  border-style: outset;
-  height: 50px;
-  padding: 25px;
-  margin: 0 auto;
-  background-color:white;
-}
-
 a{
   padding-right: 25px;
   color:black;
   font-family: 'Pacifico', cursive;
   font-size: 20px;
 }
+
+.navbar-nav{
+  margin-left:75%;
+}
+
+.authorized{
+  margin-left: 65%;
+}
+
