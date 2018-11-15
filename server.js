@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 //static pathing
 const path = require('path');
 //backend mongoose routes
-const routes = require('./routes/index.js');
+const routes = require('./routes');
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
