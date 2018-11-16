@@ -42,7 +42,7 @@ module.exports = {
           }
         }
       )
-      .then(personal => res.json(personal + ' sucess'))
+      .then(personal => res.json(personal + ' success'))
       .catch(error =>
         res.status(422).json(error + 'Sorry, something went wrong')
       );
