@@ -4,15 +4,18 @@ import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
 import './Navigation.css';
+import { icon } from './App';
+
 
 const Navigation = ({ authUser }) => (
+
   <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
 );
 
 const NavigationAuth = () => (
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
+    <div>{icon}</div>
     <Link to={routes.LANDING}>Free Time</Link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

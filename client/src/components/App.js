@@ -12,7 +12,18 @@ import AccountPage from "./Account";
 import AvailabilityPage from "./Availability/";
 import { firebase } from "../firebase";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import * as routes from "../constants/routes";
+
+library.add(faCheckSquare, faCoffee)
+
+export const icon = () => (
+  <div>
+    <FontAwesomeIcon icon="coffee" />
+  </div>
+)
 
 class App extends Component {
   constructor(props) {
