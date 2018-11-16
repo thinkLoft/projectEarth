@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // // Serve up static assets
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('client/build'));
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 //use routes file
 app.use(routes);
 //locally connect mongoose to mongo db under specified name; in production use heroku's addons
@@ -30,7 +30,7 @@ mongoose.connect(
 // Send every request to the React app
 // Define any API routes before this runs
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname + './client/build/index.html'));
+  res.sendFile(path.join(__dirname + './client/index.html'));
   /*const index = path.join(__dirname, 'build', 'index.html');
   res.sendFile(index);*/
 });
