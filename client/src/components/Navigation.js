@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SignOutButton from "./SignOut";
 import * as routes from "../constants/routes";
 import './Navigation.css';
-import { icon } from './App';
+import icon from './images/icon.jpg'
 
 
 const Navigation = ({ authUser }) => (
@@ -15,7 +15,7 @@ const Navigation = ({ authUser }) => (
 const NavigationAuth = () => (
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div>{icon}</div>
+    <img class="calendarIcon" src={icon} alt="calendarIcon" />
     <Link to={routes.LANDING}>Free Time</Link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

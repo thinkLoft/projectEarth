@@ -1,22 +1,36 @@
 import React from "react";
 import './Home.css';
 import availability from './images/availability.png'
-import planning from "./images/planning.jpg"
 
 const HomePage = () => (
   <div id="home">
-    <h1>Home Page</h1>
-    <div id="content-wrapper">
-      <div id="background-carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="h-100 d-block w-100" src={availability} alt="First slide" />
+    <div class="row explanation">
+      <div class="col">
+        <div class="card">
+          <img class="card-img-top" src={availability} alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
-          <div class="carousel-item">
-            <img class="h-100 d-block w-100" src={planning} alt="Second slide" />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <img class="card-img-top" src={availability} alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
-          <div class="carousel-item">
-            <img class="h-100 d-block w-100" src="images/patterns.jpg" alt="Third slide" />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <img class="card-img-top" src={availability} alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
       </div>
