@@ -14,7 +14,7 @@ const NavigationAuth = () => (
     <Link to={routes.LANDING}>Free Time</Link>
     <Link to={routes.HOME}>Home</Link>
     <Link to={routes.ACCOUNT}>Account</Link>
-    {/* <Link to={routes.AVAILABILITY}>Availability</Link> */}
+    <Link to={routes.AVAILABILITY}>Availability</Link>
     <SignOutButton />
   </ul>
 );
