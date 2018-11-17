@@ -27,7 +27,7 @@ class ModalExample extends React.Component {
           {this.props.buttonLabel}
         </Button>
         <Modal
-          isOpen={this.state.modal}
+          open={this.state.showModal}
           toggle={this.toggle}
           className={this.props.className}
         >
