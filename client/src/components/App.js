@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation authUser={this.state.authUser} clog={this.showUser()} />
+          <Navigation authUser={this.state.authUser} />
           <hr />
           <Route exact path={routes.LANDING} component={LandingPage} />
           <Route
