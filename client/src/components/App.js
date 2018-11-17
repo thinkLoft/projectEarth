@@ -9,7 +9,6 @@ import SignInPage from "./signin/";
 import PasswordForgetPage from "./PasswordForget";
 import HomePage from "./Home";
 import AccountPage from "./Account";
-import AvailabilityPage from "./Availability/";
 import { firebase } from "../firebase";
 
 import * as routes from "../constants/routes";
