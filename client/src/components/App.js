@@ -25,7 +25,7 @@ class App extends Component {
     };
   }
   //show user's email, displayName, phoneNumber, and photoURL
-  showUser = () => {
+  /*showUser = () => {
     if (this.state.authUser !== null && this.state.authUser !== 'undefined') {
       //console.log(this.state.authUser);
       console.log(`The following is from showUser function\n
@@ -36,7 +36,8 @@ class App extends Component {
     } else if (this.state.authUser === null) {
       console.log('no user is logged in');
     }
-  };
+  };*/
+  /*
   saveUser = event => {
     event.preventDefault();
     console.log('saving user');
@@ -53,7 +54,7 @@ class App extends Component {
         console.log(res);
       });
     }
-  };
+  };*/
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
