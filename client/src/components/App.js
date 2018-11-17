@@ -47,8 +47,8 @@ class App extends Component {
           />
           <Route exact path={routes.HOME} component={HomePage} />
           <Route exact path={routes.ACCOUNT} component={AccountPage} />
-          <Route exact path={routes.LOGIN} component={Login} />
           <Route exact path={routes.AVAILABILITY} component={Availability} />
+          <Route exact path={routes.LOGIN} component={Login} />
         </div>
       </Router>
     );

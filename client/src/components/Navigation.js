@@ -20,7 +20,7 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <ul >
+  <ul>
     <Link to={routes.LANDING}>Landing</Link>
     <Link to={routes.SIGN_IN}>Login</Link>
     <Link to={routes.SIGN_UP}>Sign Up</Link>
