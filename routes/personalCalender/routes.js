@@ -14,6 +14,6 @@ router
 router
   .route('/:id')
   .get(personalCalender.findById)
-  .put(personalCalender.update);
+  .post(personalCalender.update);
 //export the router
 module.exports = router;

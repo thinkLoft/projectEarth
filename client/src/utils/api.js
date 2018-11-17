@@ -13,6 +13,6 @@ export default {
   },
   //update user's start date and end date for calender
   addEvent: function(id) {
-    return axios.get('/api/personal/mycalender/' + id);
+    return axios.post('/api/personal/mycalender/' + id);
   }
 };
