@@ -1,5 +1,6 @@
 import { auth } from './firebase';
 import { userInfo } from 'os';
+import axios from 'axios';
 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
@@ -25,16 +26,14 @@ export const doPasswordUpdate = password =>
   email, display name(if it exists), phone number (if it exists), and the photo url (if it exists)*/
 //no need to export this function; upon login and signup user information will be shown
 auth.onAuthStateChanged(user => {
-  if (user) {
+  if (user != null) {
+    const userEmail = user.email;
+    const displayName = user.displayName;
+    const phoneNumber = user.phoneNumber;
+    const photoUrl = user.photoURL;
     console.log(
       'user login status: ' +
-        `The user's email: ${
-          user.email
-        }\n The user's displayName if it exisits: ${
-          user.displayName
-        }\n The user's phone number if it exisits: ${
-          user.phoneNumber
-        }\n The user's photoUrl if it exists: ${user.photoURL}\n`
+        `The user's email: ${userEmail}\n The user's displayName if it exisits: ${displayName}\n The user's phone number if it exisits: ${phoneNumber}\n The user's photoUrl if it exists: ${photoUrl}\n`
     );
   } else {
     // No user is signed in.
