@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "./Form.css";
 
 export default class Example extends React.Component {
   render() {
@@ -29,7 +30,7 @@ export default class Example extends React.Component {
           <Input type="textarea" name="text" id="exampleText" />
         </FormGroup>
 
-        <Button>Submit</Button>
+        <Button className="submit">Submit</Button>
       </Form>
     );
   }

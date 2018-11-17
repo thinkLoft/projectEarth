@@ -9,8 +9,6 @@ const AccountPage = () => (
       <UserCalendar />
     </div>
     <Form />
-
-    <button className="btn btn-primary add">Add</button>
   </div>
 );
 
