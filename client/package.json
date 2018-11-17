@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.18.0",
     "calendar": "^0.1.0",
     "firebase": "^5.5.8",
     "react": "^16.6.1",

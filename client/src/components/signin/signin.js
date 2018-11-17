@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { auth } from "../../firebase";
-import * as routes from "../../constants/routes";
-import "./signin.css";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { auth } from '../../firebase';
+import * as routes from '../../constants/routes';
+import './signin.css';
 
 const SignInPage = ({ history }) => (
-  <div id="signIn" class="container">
+  <div id="signIn" className="container">
     <SignInForm history={history} />
   </div>
 );
 
 const INITIAL_STATE = {
-  username: "",
-  email: "",
-  passwordOne: "",
-  passwordTwo: "",
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
   error: null
 };
 
@@ -41,7 +41,7 @@ class SignInForm extends Component {
         history.push(routes.HOME);
       })
       .catch(error => {
-        this.setState(byPropKey("error", error));
+        this.setState(byPropKey('error', error));
       });
   };
 
@@ -59,7 +59,7 @@ class SignInForm extends Component {
               className="form-control email"
               value={email}
               onChange={event =>
-                this.setState(byPropKey("email", event.target.value))
+                this.setState(byPropKey('email', event.target.value))
               }
               type="email"
               placeholder="Email Address"
@@ -70,7 +70,7 @@ class SignInForm extends Component {
               value={passwordOne}
               className="form-control password"
               onChange={event =>
-                this.setState(byPropKey("passwordOne", event.target.value))
+                this.setState(byPropKey('passwordOne', event.target.value))
               }
               type="password"
               placeholder="Password"
@@ -79,7 +79,7 @@ class SignInForm extends Component {
             <div id="buttons">
               <button type="submit" className="btn btn-primary login">
                 Login
-              </button>{" "}
+              </button>{' '}
             </div>
             {error && <p>{error.message}</p>}
           </div>
