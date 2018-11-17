@@ -27,16 +27,17 @@ export const doPasswordUpdate = password =>
 auth.onAuthStateChanged(user => {
   if (user) {
     console.log(
-      `The user's email: ${
-        user.email
-      }\n The user's displayName if it exisits: ${
-        user.displayName
-      }\n The user's phone number if it exisits: ${
-        user.phoneNumber
-      }\n The user's photoUrl if it exists: ${user.photoURL}\n`
+      'user login status: ' +
+        `The user's email: ${
+          user.email
+        }\n The user's displayName if it exisits: ${
+          user.displayName
+        }\n The user's phone number if it exisits: ${
+          user.phoneNumber
+        }\n The user's photoUrl if it exists: ${user.photoURL}\n`
     );
   } else {
     // No user is signed in.
-    console.log('There is no logged in user');
+    console.log('user login status: ' + 'There is no logged in user');
   }
 });
