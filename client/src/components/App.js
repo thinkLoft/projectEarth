@@ -25,18 +25,18 @@ class App extends Component {
     };
   }
   //show user's email, displayName, phoneNumber, and photoURL
-  showUser = () => {
+  /*showUser = () => {
     if (this.state.authUser !== null && this.state.authUser !== 'undefined') {
       console.log('uid : ' + this.state.authUser.uid);
-      /*console.log(`The following is from showUser function\n
+      console.log(`The following is from showUser function\n
       Email: ${this.state.authUser.email}\n
       displayName: ${this.state.authUser.displayName}\n
       console.log('phoneNumber: ' + this.state.authUser.phoneNumber`);
-      console.log('photoUrl : ' + this.state.authUser.photoURL);*/
+      console.log('photoUrl : ' + this.state.authUser.photoURL);
     } else if (this.state.authUser === null) {
       console.log('no user is logged in');
     }
-  };
+  };*/
   /*
   saveUser = event => {
     event.preventDefault();
