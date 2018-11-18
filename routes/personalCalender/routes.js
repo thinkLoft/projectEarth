@@ -11,9 +11,11 @@ router
   .get(personalCalender.findEverything);
 //find a user by their id
 //update a users personalCalender's startDate and endDate
+router.route('/:id').get(personalCalender.findById);
+//finds by uid and posts to the db for new dates
 router
-  .route('/:id')
-  .get(personalCalender.findById)
+  .route('/uid/:uid')
+  .get(personalCalender.findByUid)
   .post(personalCalender.update);
 //export the router
 module.exports = router;
