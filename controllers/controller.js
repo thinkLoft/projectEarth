@@ -1,13 +1,13 @@
 //require in models schema
-const db = require('../models/export.js');
+const db = require("../models/export.js");
 //create a simplified object from calling on database
 module.exports = {
   findEverything: function(req, res) {
     db.myCalender
       .find()
-      .then(personal => res.json(personal + ' Success'))
+      .then(personal => res.json(personal + " Success"))
       .catch(error =>
-        res.status(422).json(error + ' Sorry, something went wrong')
+        res.status(422).json(error + " Sorry, something went wrong")
       );
   },
 
@@ -16,20 +16,19 @@ module.exports = {
     db.myCalender
       .create({
         uid: req.body.uid,
-        userEmail: req.body.userEmail,
-        name: req.body.name
+        userEmail: req.body.userEmail
       })
-      .then(personal => res.json(personal + ' Success'))
+      .then(personal => res.json(personal + " Success"))
       .catch(error =>
-        res.status(422).json(error + ' Sorry, something went wrong')
+        res.status(422).json(error + " Sorry, something went wrong")
       );
   },
   findById: function(req, res) {
     db.myCalender
       .findById(req.params.id)
-      .then(personal => res.json(personal + ' success'))
+      .then(personal => res.json(personal + " success"))
       .catch(error =>
-        res.status(422).json(error + ' Sorry, something went wrong')
+        res.status(422).json(error + " Sorry, something went wrong")
       );
   },
 
@@ -37,9 +36,9 @@ module.exports = {
   findByUid: function(req, res) {
     db.myCalender
       .findOne({ uid: req.params.uid /*_id: req.params.id*/ })
-      .then(personal => res.json(personal + ' success'))
+      .then(personal => res.json(personal + " success"))
       .catch(error =>
-        res.status(422).json(error + ' Sorry, something went wrong')
+        res.status(422).json(error + " Sorry, something went wrong")
       );
   },
   //update start date and end date for personal calender
@@ -60,7 +59,7 @@ module.exports = {
       )
       .then(personal => res.json(personal))
       .catch(error => {
-        res.status(422).json(error + ' Sorry, something went wrong');
+        res.status(422).json(error + " Sorry, something went wrong");
       });
   }
   /*{ _id: req.params.id },
