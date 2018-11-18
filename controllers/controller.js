@@ -14,17 +14,30 @@ module.exports = {
   //create a new user
   newUser: function(req, res) {
     db.myCalender
-      .create({ userEmail: req.body.userEmail, name: req.body.name })
+      .create({
+        uid: req.body.uid,
+        userEmail: req.body.userEmail,
+        name: req.body.name
+      })
       .then(personal => res.json(personal + ' Success'))
       .catch(error =>
         res.status(422).json(error + ' Sorry, something went wrong')
       );
   },
-  //finding a user by their id
   findById: function(req, res) {
     db.myCalender
       .findById(req.params.id)
-      .then(personal => res.json(personal + ' sucess'))
+      .then(personal => res.json(personal + ' success'))
+      .catch(error =>
+        res.status(422).json(error + ' Sorry, something went wrong')
+      );
+  },
+
+  //finding a user by their id
+  findByUid: function(req, res) {
+    db.myCalender
+      .findOne({ uid: req.params.uid /*_id: req.params.id*/ })
+      .then(personal => res.json(personal + ' success'))
       .catch(error =>
         res.status(422).json(error + ' Sorry, something went wrong')
       );
@@ -34,14 +47,17 @@ module.exports = {
   update: function(req, res) {
     console.log(req.body);
     db.myCalender
-      .findByIdAndUpdate(req.params.id, {
-        $push: {
-          personalCalendar: {
-            startDate: new Date(req.body.startDate),
-            endDate: new Date(req.body.endDate)
+      .update(
+        { uid: req.params.uid },
+        {
+          $push: {
+            personalCalendar: {
+              startDate: new Date(req.body.startDate),
+              endDate: new Date(req.body.endDate)
+            }
           }
         }
-      })
+      )
       .then(personal => res.json(personal))
       .catch(error => {
         res.status(422).json(error + ' Sorry, something went wrong');
