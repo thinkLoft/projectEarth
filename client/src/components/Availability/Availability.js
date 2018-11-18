@@ -1,5 +1,6 @@
 import React from 'react';
 import './Availability.css';
+console.log('test');
 
 const AvailabilityPage = () => (
   <div id="seeTime" className="container">
