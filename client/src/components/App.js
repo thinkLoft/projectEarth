@@ -25,7 +25,7 @@ class App extends Component {
     };
   }
   //show user's email, displayName, phoneNumber, and photoURL
-  showUser = () => {
+  /*showUser = () => {
     if (this.state.authUser !== null && this.state.authUser !== "undefined") {
       const userUid = this.state.authUser.uid;
       const usersEmail = this.state.authUser.email;
@@ -59,7 +59,7 @@ class App extends Component {
           console.log("saveUser(): " + error);
         });
     }
-  };
+  };*/
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
@@ -80,7 +80,7 @@ class App extends Component {
             path={routes.SIGN_UP}
             component={SignUpPage}
             //saveNew={this.saveUser}
-            clog={this.showUser()}
+            //clog={this.showUser()}
           />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
