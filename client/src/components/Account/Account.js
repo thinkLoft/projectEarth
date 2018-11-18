@@ -15,9 +15,9 @@ firebase.auth.onAuthStateChanged(user => {
   }
 });
 
-const AccountPage = () => (
+const AccountPage = ({ authUser }) => (
   <div id="addTime" className="container">
-    <Form />
+    <Form email={authUser.email} />
   </div>
 );
 

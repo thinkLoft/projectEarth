@@ -2,11 +2,11 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Form.css";
 import Calendar from "react-calendar";
-import API from "../utils/api";
+// import API from "../utils/api";
 
 export default class freeForm extends React.Component {
   state = {
-    email: "",
+    email: this.props.email,
     date: new Date(),
     startTime: "",
     endTime: ""
@@ -27,7 +27,7 @@ export default class freeForm extends React.Component {
     if (this.state.startTime && this.state.endTime) {
       console.log({
         email: this.state.email,
-        date: this.state.date,
+        date: this.state.date.getDate(),
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
@@ -46,6 +46,7 @@ export default class freeForm extends React.Component {
               value={this.state.date}
             />
           </div>
+          //
           <Label for="email">Email</Label>
           <Input
             value={this.state.email}
@@ -55,7 +56,6 @@ export default class freeForm extends React.Component {
           />
           <Label for="date">Date</Label>
           <Input type="text" placeholder={this.state.date} name="date" />
-
           <Label for="startTime">Start</Label>
           <Input
             type="time"

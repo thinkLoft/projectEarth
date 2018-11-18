@@ -57,7 +57,13 @@ class App extends Component {
               <HomePage authUser={this.state.authUser} {...props} />
             )}
           />
-          <Route exact path={routes.ACCOUNT} component={AccountPage} />
+          <Route
+            exact
+            path={routes.ACCOUNT}
+            render={props => (
+              <AccountPage authUser={this.state.authUser} {...props} />
+            )}
+          />
           <Route exact path={routes.AVAILABILITY} component={Availability} />
           <Route exact path={routes.LOGIN} component={Login} />
         </div>
