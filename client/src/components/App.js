@@ -25,18 +25,18 @@ class App extends Component {
     };
   }
   //show user's email, displayName, phoneNumber, and photoURL
-  /*showUser = () => {
+  showUser = () => {
     if (this.state.authUser !== null && this.state.authUser !== 'undefined') {
-      //console.log(this.state.authUser);
-      console.log(`The following is from showUser function\n
+      console.log('uid : ' + this.state.authUser.uid);
+      /*console.log(`The following is from showUser function\n
       Email: ${this.state.authUser.email}\n
       displayName: ${this.state.authUser.displayName}\n
       console.log('phoneNumber: ' + this.state.authUser.phoneNumber`);
-      console.log('photoUrl : ' + this.state.authUser.photoURL);
+      console.log('photoUrl : ' + this.state.authUser.photoURL);*/
     } else if (this.state.authUser === null) {
       console.log('no user is logged in');
     }
-  };*/
+  };
   /*
   saveUser = event => {
     event.preventDefault();
@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation authUser={this.state.authUser} />
+          <Navigation authUser={this.state.authUser} clog={this.showUser()} />
           <hr />
           <Route exact path={routes.LANDING} component={LandingPage} />
           <Route
