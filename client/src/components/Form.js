@@ -1,36 +1,87 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Form.css";
+import Calendar from "react-calendar";
+import API from "../utils/api";
 
-export default class Example extends React.Component {
+export default class freeForm extends React.Component {
+  state = {
+    email: "",
+    date: new Date(),
+    startTime: "",
+    endTime: ""
+  };
+
+  // For all other inputs
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  // for Calendar
+  onChange = date => this.setState({ date });
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.startTime && this.state.endTime) {
+      console.log({
+        email: this.state.email,
+        date: this.state.date,
+        startTime: this.state.startTime,
+        endTime: this.state.endTime
+      });
+    }
+    console.log("hello from the submit");
+  };
+
   render() {
     return (
       <Form>
         <FormGroup>
-          <Label for="examplePassword">Start</Label>
+          <div className="container calendar">
+            <Calendar
+              name="date"
+              onChange={this.onChange}
+              value={this.state.date}
+            />
+          </div>
+          <Label for="email">Email</Label>
           <Input
-            type="data"
-            name="time1"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            name="email"
+            placeholder="email@example.com"
+          />
+          <Label for="date">Date</Label>
+          <Input type="text" placeholder={this.state.date} name="date" />
+
+          <Label for="startTime">Start</Label>
+          <Input
+            type="time"
+            name="startTime"
             id="startTime"
-            placeholder="MM/DD/YY 00:00"
+            onChange={this.handleInputChange}
+            value={this.state.startTime}
+            placeholder="00:00"
           />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">End</Label>
+          <Label for="endTime">End</Label>
           <Input
-            type="data"
-            name="time2"
+            type="time"
+            name="endTime"
             id="endTime"
-            placeholder="MM/DD/YY 00:00"
+            placeholder="00:00"
+            onChange={this.handleInputChange}
           />
         </FormGroup>
 
-        <FormGroup>
-          <Label for="exampleText">Text Area</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-        </FormGroup>
-
-        <Button className="submit">Submit</Button>
+        <Button
+          className="submit"
+          disabled={!(this.state.startTime && this.state.endTime)}
+          onClick={this.handleFormSubmit}
+        >
+          Ad Freetime
+        </Button>
       </Form>
     );
   }

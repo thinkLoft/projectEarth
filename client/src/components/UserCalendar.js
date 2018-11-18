@@ -10,7 +10,7 @@ class UserCalendar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container calendar">
         <Calendar onChange={this.onChange} value={this.state.date} />
       </div>
     );
