@@ -13,23 +13,9 @@ export default {
   },
   //update user's start date and end date for calender
   addEvent: function(uid) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     return axios.post("/api/personal/mycalender/uid/" + uid);
   },
   findUid: function(uid) {
     return axios.get("/api/personal/mycalender/uid/" + uid);
-=======
-    return axios.post('/api/personal/mycalender/uid/:uid' + uid);
-  },
-  findUid: function(uid) {
-    return axios.get('/api/personal/mycalender/uid/' + uid);
->>>>>>> changed paths for uid user
-=======
-    return axios.post("/api/personal/mycalender/uid/" + uid);
-  },
-  findUid: function(uid) {
-    return axios.get("/api/personal/mycalender/uid/" + uid);
->>>>>>> user is now saving to databse , error when u log a user again, doesnt break tho; can save startend dates
   }
 };

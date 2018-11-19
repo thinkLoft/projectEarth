@@ -60,12 +60,8 @@ class App extends Component {
           console.log("saveUser(): " + error);
         });
     }
-<<<<<<< HEAD
   };
   */
-=======
-  };*/
->>>>>>> commented out
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(blah => {
@@ -92,10 +88,7 @@ class App extends Component {
             path={routes.SIGN_UP}
             component={SignUpPage}
             //saveNew={this.saveUser}
-<<<<<<< HEAD
-=======
             //clog={this.showUser()}
->>>>>>> commented out
           />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
