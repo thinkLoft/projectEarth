@@ -30,6 +30,7 @@ class App extends Component {
     };
   }
   //show user's email, displayName, phoneNumber, and photoURL
+<<<<<<< HEAD
   /*showUser = () => {
     if (this.state.authUser !== null && this.state.authUser !== 'undefined') {
 <<<<<<< HEAD
@@ -48,38 +49,52 @@ class App extends Component {
       console.log('photoUrl : ' + this.state.authUser.photoURL);
       this.saveUser(userUid, usersEmail, userName);
       console.log('done');
+=======
+  showUser = () => {
+    if (this.state.authUser !== null && this.state.authUser !== "undefined") {
+      const userUid = this.state.authUser.uid;
+      const usersEmail = this.state.authUser.email;
+      //const userName = this.state.authUser.displayName;
+      console.log(userUid, usersEmail);
+      console.log("uid : " + this.state.authUser.uid);
+      this.saveUser(userUid, usersEmail);
+      console.log("done");
+>>>>>>> user is now saving to databse , error when u log a user again, doesnt break tho; can save startend dates
     } else if (this.state.authUser === null) {
-      console.log('no user is logged in');
+      console.log("no user is logged in");
     }
-  };*/
-
-  /*saveUser = (a, b, c) => {
-    console.log('saving user');
+  };
+  //
+  saveUser = (a, b) => {
+    console.log("saving user");
     if (
       this.state.authUser !== null &&
-      this.state.authUser !== 'undefined' &&
-      this.state.authUser !== 'error'
+      this.state.authUser !== "undefined" &&
+      this.state.authUser !== "error"
     ) {
-      console.log('a, b, c: ' + a, b, c);
+      console.log("a, b: " + a, b);
       API.newUser({
         uid: a,
-        userEmail: b,
-        name: c
+        userEmail: b
       })
         .then(res => {
-          console.log('Success');
+          console.log("Success");
           console.log(res);
         })
         .catch(error => {
-          console.log('saveUser(): ' + error);
+          console.log("saveUser(): " + error);
         });
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
   };
   */
 =======
   };*/
 >>>>>>> commented out authUser properties function
+=======
+  };
+>>>>>>> user is now saving to databse , error when u log a user again, doesnt break tho; can save startend dates
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(blah => {
@@ -109,7 +124,8 @@ class App extends Component {
             exact
             path={routes.SIGN_UP}
             component={SignUpPage}
-            saveNew={this.saveUser}
+            //saveNew={this.saveUser}
+            clog={this.showUser()}
           />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
