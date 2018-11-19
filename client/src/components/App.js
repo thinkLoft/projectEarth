@@ -37,7 +37,8 @@ class App extends Component {
     } else if (this.state.authUser === null) {
       console.log('no user is logged in');
     }
-  };
+  };*/
+  /*
   saveUser = event => {
     event.preventDefault();
     console.log('saving user');
@@ -54,8 +55,12 @@ class App extends Component {
         console.log(res);
       });
     }
+<<<<<<< HEAD
   };
   */
+=======
+  };*/
+>>>>>>> commented out authUser properties function
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(blah => {
