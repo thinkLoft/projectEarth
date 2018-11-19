@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Navigation from "./Navigation";
-<<<<<<< HEAD
 import Login from "./login/";
-=======
-import Login from :"./login/";
->>>>>>> trying to undo single quote conflict error in PR
 import LandingPage from "./Landing";
 import SignUpPage from "./signup/";
 import SignInPage from "./signin/";
@@ -30,27 +26,7 @@ class App extends Component {
     };
   }
   //show user's email, displayName, phoneNumber, and photoURL
-<<<<<<< HEAD
   /*showUser = () => {
-    if (this.state.authUser !== null && this.state.authUser !== 'undefined') {
-<<<<<<< HEAD
-      //console.log(this.state.authUser);
-=======
-      const userUid = this.state.authUser.uid;
-      const usersEmail = this.state.authUser.email;
-      const userName = this.state.authUser.displayName;
-      console.log(userUid, usersEmail, userName);
-       console.log('uid : ' + this.state.authUser.uid);
->>>>>>> trying to undo single quote conflict error in PR
-      console.log(`The following is from showUser function\n
-      Email: ${this.state.authUser.email}\n
-      displayName: ${this.state.authUser.displayName}\n
-      console.log('phoneNumber: ' + this.state.authUser.phoneNumber`);
-      console.log('photoUrl : ' + this.state.authUser.photoURL);
-      this.saveUser(userUid, usersEmail, userName);
-      console.log('done');
-=======
-  showUser = () => {
     if (this.state.authUser !== null && this.state.authUser !== "undefined") {
       const userUid = this.state.authUser.uid;
       const usersEmail = this.state.authUser.email;
@@ -59,7 +35,6 @@ class App extends Component {
       console.log("uid : " + this.state.authUser.uid);
       this.saveUser(userUid, usersEmail);
       console.log("done");
->>>>>>> user is now saving to databse , error when u log a user again, doesnt break tho; can save startend dates
     } else if (this.state.authUser === null) {
       console.log("no user is logged in");
     }
@@ -85,16 +60,8 @@ class App extends Component {
           console.log("saveUser(): " + error);
         });
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
   };
   */
-=======
-  };*/
->>>>>>> commented out authUser properties function
-=======
-  };
->>>>>>> user is now saving to databse , error when u log a user again, doesnt break tho; can save startend dates
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(blah => {
@@ -111,13 +78,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-<<<<<<< HEAD
           <Navigation
             authUser={this.state.authUser} /*clog={this.showUser()}*/
           />
-=======
-          <Navigation authUser={this.state.authUser} />
->>>>>>> commented out some warning fns
           <hr />
           <Route exact path={routes.LANDING} component={LandingPage} />
           <Route
@@ -125,7 +88,6 @@ class App extends Component {
             path={routes.SIGN_UP}
             component={SignUpPage}
             //saveNew={this.saveUser}
-            clog={this.showUser()}
           />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
