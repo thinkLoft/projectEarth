@@ -4,7 +4,11 @@ import { auth } from "./firebase";
 import { auth } from './firebase';
 import { userInfo } from 'os';
 import axios from 'axios';
+<<<<<<< HEAD
 >>>>>>> conflict fix
+=======
+import API from '../utils/api.js';
+>>>>>>> changed routes path by adding /api infront, also put changes into utils folder; then commented out function in auth.js under firebase folder because user is defined in state
 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
@@ -31,6 +35,11 @@ export const doPasswordUpdate = password =>
   the onAuthStateChanged function will display the user's 
   email, display name(if it exists), phone number (if it exists), and the photo url (if it exists)*/
 //no need to export this function; upon login and signup user information will be shown
+/*const createNewUser = userEmail => {
+  API.newUser({ userEmail: userEmail, name: displayName }).then(res => {
+    console.log(res);
+  });
+};
 auth.onAuthStateChanged(user => {
   if (user != null) {
     const userEmail = user.email;
@@ -41,9 +50,14 @@ auth.onAuthStateChanged(user => {
       'user login status: ' +
         `The user's email: ${userEmail}\n The user's displayName if it exisits: ${displayName}\n The user's phone number if it exisits: ${phoneNumber}\n The user's photoUrl if it exists: ${photoUrl}\n`
     );
+    createNewUser();
   } else {
     // No user is signed in.
     console.log('user login status: ' + 'There is no logged in user');
   }
+<<<<<<< HEAD
 });
 >>>>>>> conflict fix
+=======
+});*/
+>>>>>>> changed routes path by adding /api infront, also put changes into utils folder; then commented out function in auth.js under firebase folder because user is defined in state
