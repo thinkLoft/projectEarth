@@ -13,9 +13,16 @@ export default {
   },
   //update user's start date and end date for calender
   addEvent: function(uid) {
+<<<<<<< HEAD
     return axios.post("/api/personal/mycalender/uid/" + uid);
   },
   findUid: function(uid) {
     return axios.get("/api/personal/mycalender/uid/" + uid);
+=======
+    return axios.post('/api/personal/mycalender/uid/:uid' + uid);
+  },
+  findUid: function(uid) {
+    return axios.get('/api/personal/mycalender/uid/' + uid);
+>>>>>>> changed paths for uid user
   }
 };
