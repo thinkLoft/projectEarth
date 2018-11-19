@@ -3,12 +3,17 @@ import { auth } from "./firebase";
 =======
 import { auth } from './firebase';
 import { userInfo } from 'os';
+<<<<<<< HEAD
 import axios from 'axios';
 <<<<<<< HEAD
 >>>>>>> conflict fix
 =======
 import API from '../utils/api.js';
 >>>>>>> changed routes path by adding /api infront, also put changes into utils folder; then commented out function in auth.js under firebase folder because user is defined in state
+=======
+//import axios from 'axios';
+//import API from '../utils/api.js';
+>>>>>>> commented out some warning fns
 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
