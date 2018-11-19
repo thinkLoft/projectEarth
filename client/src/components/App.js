@@ -11,6 +11,8 @@ import HomePage from "./Home";
 import AccountPage from "./Account";
 import { firebase } from "../firebase";
 import Availability from "./Availability";
+import axios from "axios";
+import API from "../utils/api.js";
 
 import * as routes from "../constants/routes";
 
@@ -23,6 +25,37 @@ class App extends Component {
       loaded: false
     };
   }
+  //show user's email, displayName, phoneNumber, and photoURL
+  /*showUser = () => {
+    if (this.state.authUser !== null && this.state.authUser !== 'undefined') {
+      //console.log(this.state.authUser);
+      console.log(`The following is from showUser function\n
+      Email: ${this.state.authUser.email}\n
+      displayName: ${this.state.authUser.displayName}\n
+      console.log('phoneNumber: ' + this.state.authUser.phoneNumber`);
+      console.log('photoUrl : ' + this.state.authUser.photoURL);
+    } else if (this.state.authUser === null) {
+      console.log('no user is logged in');
+    }
+  };
+  saveUser = event => {
+    event.preventDefault();
+    console.log('saving user');
+    if (
+      this.state.authUser !== null &&
+      this.state.authUser !== 'undefined' &&
+      this.state.authUser !== 'error'
+    ) {
+      API.newUser({
+        userEmail: this.state.authUser.email,
+        name: this.state.authUser.displayName
+      }).then(res => {
+        console.log('Success');
+        console.log(res);
+      });
+    }
+  };
+  */
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(blah => {
@@ -32,7 +65,6 @@ class App extends Component {
       this.setState({ loaded: true });
     });
   }
-
   render() {
     if (!this.state.loaded) {
       return null;
@@ -40,10 +72,17 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation authUser={this.state.authUser} />
+          <Navigation
+            authUser={this.state.authUser} /*clog={this.showUser()}*/
+          />
           <hr />
           <Route exact path={routes.LANDING} component={LandingPage} />
-          <Route exact path={routes.SIGN_UP} component={SignUpPage} />
+          <Route
+            exact
+            path={routes.SIGN_UP}
+            component={SignUpPage}
+            saveNew={this.saveUser}
+          />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
             exact

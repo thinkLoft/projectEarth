@@ -32,9 +32,22 @@ module.exports = {
   //update start date and end date for personal calender
   //keep the start date and end date infor in req.body
   update: function(req, res) {
+    console.log(req.body);
     db.myCalender
-      .updateMany(
-        { _id: req.params.id },
+      .findByIdAndUpdate(req.params.id, {
+        $push: {
+          personalCalendar: {
+            startDate: new Date(req.body.startDate),
+            endDate: new Date(req.body.endDate)
+          }
+        }
+      })
+      .then(personal => res.json(personal))
+      .catch(error => {
+        res.status(422).json(error + ' Sorry, something went wrong');
+      });
+  }
+  /*{ _id: req.params.id },
         {
           $set: {
             'personalCalendar.$.startDate': req.body.startDate,
@@ -42,9 +55,9 @@ module.exports = {
           }
         }
       )
-      .then(personal => res.json(personal + ' success'))
+      .then(personal => res.json(personal))
       .catch(error =>
         res.status(422).json(error + 'Sorry, something went wrong')
       );
-  }
+  }*/
 };
