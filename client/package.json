@@ -7,6 +7,8 @@
     "axios": "^0.18.0",
     "calendar": "^0.1.0",
     "firebase": "^5.5.8",
+    "fullcalendar": "^3.9.0",
+    "jquery": "^3.3.1",
     "react": "^16.6.1",
     "react-calendar": "^2.17.5",
     "react-dom": "^16.0.0",
@@ -19,5 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "webpack": "^4.26.0"
   }
 }
