@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import "fullcalendar";
-import "./Calendar.css";
+import "./External.css";
 
 // class Application extends React.Component {
 //   render() {
@@ -77,4 +77,4 @@ class External extends React.Component {
   }
 }
 
-export default Calendar;
+export default External;
