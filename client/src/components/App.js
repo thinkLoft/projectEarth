@@ -9,40 +9,34 @@ import SignInPage from "./signin/";
 import PasswordForgetPage from "./PasswordForget";
 import HomePage from "./Home";
 import AccountPage from "./Account";
-import AvailabilityPage from "./Availability/";
 import { firebase } from "../firebase";
+import Availability from "./Availability";
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import * as routes from "../constants/routes";
-
-library.add(faCheckSquare, faCoffee)
-
-export const icon = () => (
-  <div>
-    <FontAwesomeIcon icon="coffee" />
-  </div>
-)
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      authUser: null
+      authUser: null,
+      loaded: false
     };
   }
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged(authUser => {
-      authUser
-        ? this.setState({ authUser })
+    firebase.auth.onAuthStateChanged(blah => {
+      blah
+        ? this.setState({ authUser: blah })
         : this.setState({ authUser: null });
+      this.setState({ loaded: true });
     });
   }
 
   render() {
+    if (!this.state.loaded) {
+      return null;
+    }
     return (
       <Router>
         <div>
@@ -56,9 +50,21 @@ class App extends Component {
             path={routes.PASSWORD_FORGET}
             component={PasswordForgetPage}
           />
-          <Route exact path={routes.HOME} component={HomePage} />
-          <Route exact path={routes.ACCOUNT} component={AccountPage} />
-          <Route exact path={routes.AVAILABILITY} component={AvailabilityPage} />
+          <Route
+            exact
+            path={routes.HOME}
+            render={props => (
+              <HomePage authUser={this.state.authUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path={routes.ACCOUNT}
+            render={props => (
+              <AccountPage authUser={this.state.authUser} {...props} />
+            )}
+          />
+          <Route exact path={routes.AVAILABILITY} component={Availability} />
           <Route exact path={routes.LOGIN} component={Login} />
         </div>
       </Router>

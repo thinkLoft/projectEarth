@@ -1,23 +1,23 @@
 import React from "react";
-import './Account.css';
+import "./Account.css";
+// import UserCalendar from "../UserCalendar";
+import Form from "../Form";
+import { firebase } from "../../firebase";
 
-const AccountPage = () => (
-  <div id="addTime" class="container">
-    <div class="container calendar">
-      Calendar will go here
-    </div>
-    <div class="row date">
-      Date will go here
-    </div>
-    <div class="row range">
-      <div class="col rangeBegin">
-        Start
-      </div>
-      <div class="col rangeEnd">
-        End
-      </div>
-    </div>
-    <button class="btn btn-primary add">Add</button>
+var authUser;
+firebase.auth.onAuthStateChanged(user => {
+  if (user) {
+    authUser = user.email;
+    console.log(authUser);
+  } else {
+    // No user is signed in.
+    console.log("user login status: There is no logged in user");
+  }
+});
+
+const AccountPage = ({ authUser }) => (
+  <div id="addTime" className="container">
+    <Form email={authUser.email} />
   </div>
 );
 

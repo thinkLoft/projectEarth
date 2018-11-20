@@ -1,12 +1,10 @@
 import React from "react";
-import './Availability.css';
+import "./Availability.css";
 
-const AvailabilityPage = () => (
+const Availability = () => (
   <div id="seeTime" class="container">
-    <div class="container detailedCalendar">
-      Calendar will go here
-    </div>
+    <div class="container detailedCalendar">Calendar will go here</div>
   </div>
 );
 
-export default AvailabilityPage;
+export default Availability;

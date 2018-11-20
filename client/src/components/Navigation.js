@@ -41,6 +41,7 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img class="calendarIcon" src={icon} alt="calendarIcon" />
     <Link to={routes.LANDING}>Free Time</Link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
