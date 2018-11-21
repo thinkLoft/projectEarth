@@ -1,11 +1,11 @@
 //an extra file so shared calender and personal calender can be hit under one route
 //require in router
-const router = require('express').Router();
+const router = require("express").Router();
 //require in routes files
-const myCalender = require('./routes.js');
+const myCalender = require("./routes.js");
 
 // personal user calender
 //future...supporting shared calender
-router.use('/mycalender', myCalender);
+router.use("/mycalender", myCalender);
 //export file router
 module.exports = router;

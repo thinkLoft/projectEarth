@@ -1,15 +1,16 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import "./Form.css";
-import Calendar from "react-calendar";
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Form.css';
+import Calendar from 'react-calendar';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
   state = {
     email: this.props.email,
+    uid: this.props.uid,
     date: new Date(),
-    startTime: "",
-    endTime: ""
+    startTime: '',
+    endTime: ''
   };
 
   // For all other inputs
@@ -26,13 +27,14 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
       console.log({
+        uid: this.state.uid,
         email: this.state.email,
         date: this.state.date.getDate(),
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
     }
-    console.log("hello from the submit");
+    console.log('hello from the submit');
   };
 
   render() {
