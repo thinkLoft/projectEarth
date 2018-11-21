@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Form.css";
 import Calendar from "react-calendar";
-// import API from "../utils/api";
+import api from "../utils/api";
 
 export default class freeForm extends React.Component {
   state = {
@@ -25,14 +25,13 @@ export default class freeForm extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-      console.log({
+      api.addEvent({
         email: this.state.email,
-        date: this.state.date.getDate(),
+        date: this.state.date,
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
     }
-    console.log("hello from the submit");
   };
 
   render() {
@@ -46,7 +45,7 @@ export default class freeForm extends React.Component {
               value={this.state.date}
             />
           </div>
-          //
+
           <Label for="email">Email</Label>
           <Input
             value={this.state.email}

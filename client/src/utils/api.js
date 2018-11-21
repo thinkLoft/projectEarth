@@ -12,9 +12,9 @@ export default {
     return axios.get("/personal/mycalender/" + id);
   },
   //update user's start date and end date for calender
-  addEvent: function(id) {
+  addEvent: function(eventData) {
     // return axios.get('/personal/mycalender/' + id);
-    var hello = "hello";
-    return hello;
+    console.log(eventData);
+    return "hello from the API";
   }
 };
