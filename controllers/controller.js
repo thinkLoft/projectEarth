@@ -1,4 +1,55 @@
-//require in models schema
+//require in schema models
+const db = require('../models/export.js');
+//creatung object to export
+module.exports = {
+  //find everything
+  findEverything: function(req, res) {
+    db.myCalender
+      .findall({})
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error + ' error');
+        }
+      });
+  },
+  //create a new User
+  newUser: function(req, res) {
+    db.myCalender
+      .create({
+        userEmail: req.body.userEmail,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate
+      })
+      .then(success => {
+        res.json(success).catch(error => {
+          if (error) {
+            res.status(422).json(error);
+          }
+        });
+      });
+  },
+  //take userEmail and update one startDate and endDate
+  update: function(req, res) {
+    db.myCalender
+      .update(
+        { userEmail: req.body.userEmail },
+        { startDate: req.body.startDate, endDate: req.body.endDate }
+      )
+      .then(success => {
+        res.json(success).catch(error => {
+          if (error) {
+            res.status(422).json(error);
+          }
+        });
+      });
+  }
+};
+//update startDate and endDate
+
+/*//require in models schema
 const db = require('../models/export.js');
 //create a simplified object from calling on database
 module.exports = {
@@ -35,7 +86,7 @@ module.exports = {
   //finding a user by their id
   findByUid: function(req, res) {
     db.myCalender
-      .findOne({ uid: req.params.uid /*_id: req.params.id*/ })
+      .findOne({ uid: req.params.uid  })
       .then(personal => res.json(personal + ' success'))
       .catch(error =>
         res.status(422).json(error + ' Sorry, something went wrong')
@@ -62,17 +113,5 @@ module.exports = {
         res.status(422).json(error + ' Sorry, something went wrong');
       });
   }
-  /*{ _id: req.params.id },
-        {
-          $set: {
-            'personalCalendar.$.startDate': req.body.startDate,
-            'personalCalendar.$.endDate': req.body.endDate
-          }
-        }
-      )
-      .then(personal => res.json(personal))
-      .catch(error =>
-        res.status(422).json(error + 'Sorry, something went wrong')
-      );
-  }*/
-};
+
+};*/
