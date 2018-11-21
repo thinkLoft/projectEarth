@@ -5,7 +5,7 @@ module.exports = {
   //find everything
   findEverything: function(req, res) {
     db.myCalender
-      .findAll({})
+      .find()
       .then(success => {
         res.json(success);
       })
@@ -36,7 +36,7 @@ module.exports = {
   update: function(req, res) {
     db.myCalender
       .update(
-        { userEmail: req.body.userEmail },
+        { userEmail: req.params.userEmail },
         { startDate: req.body.startDate, endDate: req.body.endDate }
       )
       .then(success => {

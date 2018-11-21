@@ -8,7 +8,7 @@ router
   .post('/', personalCalender.newUser)
   .get('/', personalCalender.findEverything);
 //update userEmail's startDate and endDate
-router.put('/update', personalCalender.update);
+router.post('/update/:id', personalCalender.update);
 module.exports = router;
 
 /*//hit backend route /

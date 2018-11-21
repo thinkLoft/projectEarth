@@ -11,8 +11,8 @@ export default {
     return axios.get('/api/personal/mycalendar');
   },
   //update one startdate endate
-  updateDate: function(data) {
-    return axios.put('/api/personal/mycalendar/update', data);
+  updateDate: function(id, data) {
+    return axios.put('/api/personal/mycalendar/update' + id, data);
   }
 };
 
