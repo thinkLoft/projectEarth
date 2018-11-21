@@ -8,7 +8,7 @@ import Calendar from "./External";
 // import "./Calendar.css";
 import ReactDOM from "react-dom";
 import FullCalendar from "fullcalendar-reactwrapper";
-import External from "./External.js";
+// import External from "./External";
 import "./External.css";
 
 import $ from "jquery";
@@ -17,7 +17,7 @@ import "moment/min/moment.min.js";
 const Availability = () => (
   <div id="seeTime" id="app" class="container">
     <div class="container detailedCalendar">
-      <External />
+      {/* <External /> */}
       <FullCalendar />
     </div>
   </div>
