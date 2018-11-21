@@ -7,7 +7,6 @@ import "./login.css";
 
 const SignInPage = ({ history }) => (
   <div id="signin" class="container">
-    <h1>SignIn</h1>
     <SignInForm history={history} />
   </div>
 );
