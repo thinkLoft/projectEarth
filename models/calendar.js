@@ -6,6 +6,11 @@ const Schema = mongoose.Schema;
 //create calenderSchema
 let calenderSchema = new Schema({
   //userEmail, intially commenting out required: true for testing
+  uid: {
+    type: String,
+    required: true,
+    unique: true
+  },
   userEmail: {
     type: String,
     required: true,
@@ -23,7 +28,12 @@ let calenderSchema = new Schema({
     required: true*/
   },
   //personal Calendar
-  personalCalendar: { startDate: [{ type: Date }], endDate: [{ type: Date }] },
+  personalCalendar: [
+    {
+      startDate: Date,
+      endDate: Date
+    }
+  ],
   //association with other people for shared calenders
   masterCalender: [
     {

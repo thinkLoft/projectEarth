@@ -1,4 +1,7 @@
 import { auth } from "./firebase";
+import { userInfo } from "os";
+import axios from "axios";
+import API from "../utils/api.js";
 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
