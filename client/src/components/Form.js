@@ -2,12 +2,13 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
 import Calendar from 'react-calendar';
+import API from '../utils/api';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
   state = {
     email: this.props.email,
-    uid: this.props.uid,
+    // uid: this.props.uid,
     date: new Date(),
     startTime: '',
     endTime: ''
@@ -22,17 +23,33 @@ export default class freeForm extends React.Component {
   };
   // for Calendar
   onChange = date => this.setState({ date });
-
+  saveUser = (a, b, c) => {
+    API.newUser({
+      userEmail: a,
+      startDate: b,
+      endTime: c
+    })
+      .then(success => {
+        console.log(success);
+        console.log(`Line 35 @line js file success`);
+      })
+      .catch(error => {
+        if (error) {
+          console.log(`API new USER error line 37 on form js: ${error}`);
+        }
+      });
+  };
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
       console.log({
-        uid: this.state.uid,
+        // uid: this.state.uid,
         email: this.state.email,
         date: this.state.date.getDate(),
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
+      this.saveUser(this.state.email, this.state.date, this.state.date);
     }
     console.log('hello from the submit');
   };
