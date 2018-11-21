@@ -5,11 +5,10 @@ const personalCalender = require('../../controllers/controller.js');
 //for mvp
 //create userEmail and one startDate and one endDate
 router
-  .use('/')
-  .post(personalCalender.newUser)
-  .get(personalCalender.findEverything);
+  .post('/', personalCalender.newUser)
+  .get('/', personalCalender.findEverything);
 //update userEmail's startDate and endDate
-router.use('/update').put(personalCalender.update);
+router.put('/update', personalCalender.update);
 module.exports = router;
 
 /*//hit backend route /

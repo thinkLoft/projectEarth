@@ -5,7 +5,7 @@ module.exports = {
   //find everything
   findEverything: function(req, res) {
     db.myCalender
-      .findall({})
+      .findAll({})
       .then(success => {
         res.json(success);
       })
@@ -24,11 +24,12 @@ module.exports = {
         endDate: req.body.endDate
       })
       .then(success => {
-        res.json(success).catch(error => {
-          if (error) {
-            res.status(422).json(error);
-          }
-        });
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
+        }
       });
   },
   //take userEmail and update one startDate and endDate
