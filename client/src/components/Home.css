@@ -6,7 +6,38 @@
 }
 
 .explanation{
-  padding-right: 25px;
-  padding-left:25px;
-  padding-top:25px;
+  padding: 25px;
+  margin-left:auto;
+}
+
+.card{
+  width: 22rem;
+  height: 28rem;
+  background-color: rgb(211, 238, 238);
+}
+
+.card:hover .overlay{
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  height: 28rem;
+  width: 22rem;
+  opacity: 0;
+  margin-left: -1px;
+  transition: .5s ease;
+}
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }

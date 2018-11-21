@@ -5,8 +5,8 @@ a{
   font-size: 20px;
 }
 
-.navbar-nav{
-  margin-left:75%;
+.navbar{
+  margin: 0 auto;
 }
 
 .authorized{
