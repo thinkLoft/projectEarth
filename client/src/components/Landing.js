@@ -1,6 +1,8 @@
 import React from "react";
 import './Landing.css';
 import availability from './images/availability.png'
+import availabilityInput from "./images/availabilityInput.png"
+import mutual from "./images/mutual.jpg"
 
 const LandingPage = () => (
   <div id="landing">
@@ -9,7 +11,7 @@ const LandingPage = () => (
         <div class="card">
           <div class="text">I'm free during the following times...</div>
           <div class="overlay">
-            <img class="card-img-top" src={availability} alt="Card cap" />
+            <img class="card-img-top" width="200px" height="300px" src={availabilityInput} alt="Card cap" />
             <div class="card-body">
               <h5 class="card-title">Schedule your Free Time</h5>
               <p class="card-text">Prep for future meetings or your social calendar by logging in and inputting when you're available.</p>
@@ -35,7 +37,7 @@ const LandingPage = () => (
         <div class="card">
           <div class="text">So...when are you free?</div>
           <div class="overlay">
-            <img class="card-img-top" src={availability} alt="Card cap" />
+            <img class="card-img-top" width="200px" height="250px" src={mutual} alt="Card cap" />
             <div class="card-body">
               <h5 class="card-title">Mutual Availability</h5>
               <p class="card-text">Take the pain out of scheduling meetings. Free time will show you mutual availability based on everyone's inputs. Just choose an option and you're good to go!</p>
