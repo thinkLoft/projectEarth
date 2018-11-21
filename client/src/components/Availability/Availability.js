@@ -1,5 +1,5 @@
-import React from 'react';
-import './Availability.css';
+import React from "react";
+import "./Availability.css";
 
 const AvailabilityPage = () => (
   <div id="seeTime" className="container">

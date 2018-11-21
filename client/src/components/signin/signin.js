@@ -52,7 +52,7 @@ class SignInForm extends Component {
       <div id="loginPage" className="container">
         <form id="login" onSubmit={this.onSubmit}>
           <div id="loginForm" className="form-group">
-            <h1 id="loginHead">Login Page</h1>
+            <h1 id="loginHead">Login</h1>
             <br />
             <input
               id="email"

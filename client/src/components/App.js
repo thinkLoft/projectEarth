@@ -19,19 +19,24 @@ class App extends Component {
     super(props);
 
     this.state = {
-      authUser: null
+      authUser: null,
+      loaded: false
     };
   }
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged(authUser => {
-      authUser
-        ? this.setState({ authUser })
+    firebase.auth.onAuthStateChanged(blah => {
+      blah
+        ? this.setState({ authUser: blah })
         : this.setState({ authUser: null });
+      this.setState({ loaded: true });
     });
   }
 
   render() {
+    if (!this.state.loaded) {
+      return null;
+    }
     return (
       <Router>
         <div>
@@ -45,10 +50,22 @@ class App extends Component {
             path={routes.PASSWORD_FORGET}
             component={PasswordForgetPage}
           />
-          <Route exact path={routes.HOME} component={HomePage} />
-          <Route exact path={routes.ACCOUNT} component={AccountPage} />
-          <Route exact path={routes.LOGIN} component={Login} />
+          <Route
+            exact
+            path={routes.HOME}
+            render={props => (
+              <HomePage authUser={this.state.authUser} {...props} />
+            )}
+          />
+          <Route
+            exact
+            path={routes.ACCOUNT}
+            render={props => (
+              <AccountPage authUser={this.state.authUser} {...props} />
+            )}
+          />
           <Route exact path={routes.AVAILABILITY} component={Availability} />
+          <Route exact path={routes.LOGIN} component={Login} />
         </div>
       </Router>
     );
