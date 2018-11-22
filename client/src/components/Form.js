@@ -23,11 +23,12 @@ export default class freeForm extends React.Component {
   };
   // for Calendar
   onChange = date => this.setState({ date });
-  saveUser = (a, b, c) => {
+  saveUser = (a, b, c, d) => {
     API.newUser({
       userEmail: a,
-      startDate: b,
-      endTime: c
+      date: b,
+      startTime: c,
+      endTime: d
     })
       .then(success => {
         console.log(success);
@@ -45,11 +46,16 @@ export default class freeForm extends React.Component {
       console.log({
         // uid: this.state.uid,
         email: this.state.email,
-        date: this.state.date.getDate(),
+        date: this.state.date,
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
-      this.saveUser(this.state.email, this.state.date, this.state.date);
+      this.saveUser(
+        this.state.email,
+        this.state.date,
+        this.state.startTime,
+        this.state.endTime
+      );
     }
     console.log('hello from the submit');
   };
@@ -65,7 +71,6 @@ export default class freeForm extends React.Component {
               value={this.state.date}
             />
           </div>
-          //
           <Label for="email">Email</Label>
           <Input
             value={this.state.email}

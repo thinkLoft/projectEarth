@@ -20,8 +20,9 @@ module.exports = {
     db.myCalender
       .create({
         userEmail: req.body.userEmail,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate
+        date: req.body.date,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime
       })
       .then(success => {
         res.json(success);

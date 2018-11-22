@@ -6,14 +6,20 @@ let calenderSchema = new Schema({
   //userEmail
   userEmail: {
     type: String,
-    unique: true,
+    //unique: true,
     required: true
   },
-  startDate: {
-    type: Date
+  date: {
+    type: Date,
+    required: true
   },
-  endDate: {
-    type: Date
+  startTime: {
+    type: String,
+    required: true
+  },
+  endTime: {
+    type: String,
+    required: true
   },
   //nice to haves
   masterCalender: [
