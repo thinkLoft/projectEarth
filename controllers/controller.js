@@ -7,6 +7,7 @@ let tomorrow = moment(today).endOf('day');
 //creatung object to export
 module.exports = {
   //find everything
+  //check
   findEverything: function(req, res) {
     db.myCalender
       .find()
@@ -20,6 +21,7 @@ module.exports = {
       });
   },
   //create a new User
+  //check
   newUser: function(req, res) {
     db.myCalender
       .create({
@@ -54,6 +56,7 @@ module.exports = {
       });
   },
   //find one userEMail
+  //check
   findOnePerson: function(req, res) {
     db.myCalender
       .find({ userEmail: req.body.userEmail })
@@ -67,6 +70,7 @@ module.exports = {
       });
   },
   //find by the email and Date
+  //check
   findTodayEvent: function(req, res) {
     db.myCalender
       .find({

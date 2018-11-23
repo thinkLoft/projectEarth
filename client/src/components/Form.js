@@ -46,7 +46,7 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
-      this.state.email != 'undefined' &&
+      this.state.email !== 'undefined' &&
       this.state.date !== null
     ) {
       console.log('hello');
@@ -62,15 +62,17 @@ export default class freeForm extends React.Component {
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
-      let newDate = moment(this.state.date).format('MM/DD/YYYY');
+      let newDate = moment(this.state.date).format('YYYY/MM/DD');
+      console.log(newDate);
+      console.log('saving new user line 67 on form js');
       this.saveUser(
         this.state.email,
         newDate,
         this.state.startTime,
         this.state.endTime
       );
+      console.log('after saving user @line 74 of form js');
     }
-    console.log('hello from the submit @line 74 of form js');
   };
 
   render() {
@@ -126,8 +128,7 @@ export default class freeForm extends React.Component {
                   Ad Freetime
                 </Button>
               </div>
-              <div className="col-lg-4 seeingAllEvents">
-                <h6>Click on to see Availabilities</h6>
+              <div className="col-md-4 seeingAllEvents">
                 <div className="buttonEvents">
                   <Button id="today">Today</Button>
                   <Button id="SeeAll">See All</Button>
