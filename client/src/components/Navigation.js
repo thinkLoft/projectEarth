@@ -38,6 +38,9 @@ const NavigationAuth = () => (
         <li className="nav-item">
           <Link to={routes.AVAILABILITY}>Availability</Link>
         </li>
+        <li className="nav-item">
+          <Link to={routes.TODO}>To-Do</Link>
+        </li>
         <SignOutButton />
       </ul>
     </div>
@@ -60,7 +63,7 @@ const NavigationNonAuth = () => (
       <span className="navbar-toggler-icon" />
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
+      <ul className="navbar-nav unauthorized">
         <li className="nav-item active">
           <Link to={routes.LANDING}>
             Landing<span className="sr-only">(current)</span>
