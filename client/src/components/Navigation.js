@@ -47,7 +47,7 @@ const NavigationNonAuth = () => (
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav unauthorized">
         <li class="nav-item active">
           <Link to={routes.LANDING}>Landing<span class="sr-only">(current)</span></Link>
         </li>
