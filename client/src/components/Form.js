@@ -61,12 +61,12 @@ export default class freeForm extends React.Component {
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
-      this.saveUser(
+      /*this.saveUser(
         this.state.email,
         this.state.date,
         this.state.startTime,
         this.state.endTime
-      );
+      );*/
     }
     console.log('hello from the submit');
   };
