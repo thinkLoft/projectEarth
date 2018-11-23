@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
 import Calendar from 'react-calendar';
 import API from '../utils/api';
+import moment from 'moment';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -61,14 +62,15 @@ export default class freeForm extends React.Component {
         startTime: this.state.startTime,
         endTime: this.state.endTime
       });
-      /*this.saveUser(
+      let newDate = moment(this.state.date).format('MM/DD/YYYY');
+      this.saveUser(
         this.state.email,
-        this.state.date,
+        newDate,
         this.state.startTime,
         this.state.endTime
-      );*/
+      );
     }
-    console.log('hello from the submit');
+    console.log('hello from the submit @line 74 of form js');
   };
 
   render() {

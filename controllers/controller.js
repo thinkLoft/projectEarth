@@ -71,10 +71,7 @@ module.exports = {
     db.myCalender
       .find({
         userEmail: req.body.userEmail,
-        date: {
-          $gte: today.toDate(),
-          $lt: tomorrow.toDate()
-        }
+        date: req.body.date
       })
       .then(success => {
         res.json(success);
