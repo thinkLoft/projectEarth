@@ -1,3 +1,32 @@
+.calendar-form {
+  height: 100%;
+  width: 100%;
+}
 .submit {
   margin-bottom: 10px;
+  margin-top: 15px;
+}
+.mycalendar {
+  margin-left: -300px;
+}
+.label-form {
+  margin-top: 2px;
+}
+
+#myEmail,
+#todayDate,
+#startTime,
+#endTime {
+  width: 300px;
+}
+.seeingAllEvents {
+  margin-left: 300px;
+}
+.buttonEvents {
+  text-align: center;
+  display: inline-block;
+}
+#today,
+#SeeAll {
+  display: inline-block;
 }
