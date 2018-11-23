@@ -40,6 +40,17 @@ export default class freeForm extends React.Component {
         }
       });
   };
+  //see all startEndDates
+  handleSeeAllAvailabilities = event => {
+    event.preventDefault();
+    if (
+      this.state.email !== null &&
+      this.state.email != 'undefined' &&
+      this.state.date !== null
+    ) {
+      console.log('hello');
+    }
+  };
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
@@ -62,51 +73,68 @@ export default class freeForm extends React.Component {
 
   render() {
     return (
-      <Form>
-        <FormGroup>
-          <div className="container calendar">
-            <Calendar
-              name="date"
-              onChange={this.onChange}
-              value={this.state.date}
-            />
-          </div>
-          <Label for="email">Email</Label>
-          <Input
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            name="email"
-            placeholder="email@example.com"
-          />
-          <Label for="date">Date</Label>
-          <Input type="text" placeholder={this.state.date} name="date" />
-          <Label for="startTime">Start</Label>
-          <Input
-            type="time"
-            name="startTime"
-            id="startTime"
-            onChange={this.handleInputChange}
-            value={this.state.startTime}
-            placeholder="00:00"
-          />
-          <Label for="endTime">End</Label>
-          <Input
-            type="time"
-            name="endTime"
-            id="endTime"
-            placeholder="00:00"
-            onChange={this.handleInputChange}
-          />
-        </FormGroup>
+      <div className="container calendar-form">
+        <Form>
+          <FormGroup>
+            <div className="row">
+              <div className="col-lg-8 mycalendar">
+                <Calendar
+                  name="date"
+                  onChange={this.onChange}
+                  value={this.state.date}
+                />
+                <Label for="email">Email</Label>
+                <Input
+                  id="myEmail"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  placeholder="email@example.com"
+                />
+                <Label for="date">Date</Label>
+                <Input
+                  id="todayDate"
+                  type="text"
+                  placeholder={this.state.date}
+                  name="date"
+                />
+                <Label for="startTime">Start</Label>
+                <Input
+                  type="time"
+                  name="startTime"
+                  id="startTime"
+                  onChange={this.handleInputChange}
+                  value={this.state.startTime}
+                  placeholder="00:00"
+                />
+                <Label for="endTime">End</Label>
+                <Input
+                  type="time"
+                  name="endTime"
+                  id="endTime"
+                  placeholder="00:00"
+                  onChange={this.handleInputChange}
+                />
 
-        <Button
-          className="submit"
-          disabled={!(this.state.startTime && this.state.endTime)}
-          onClick={this.handleFormSubmit}
-        >
-          Ad Freetime
-        </Button>
-      </Form>
+                <Button
+                  className="submit"
+                  disabled={!(this.state.startTime && this.state.endTime)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Ad Freetime
+                </Button>
+              </div>
+              <div className="col-lg-4 seeingAllEvents">
+                <h6>Click on to see Availabilities</h6>
+                <div className="buttonEvents">
+                  <Button id="today">Today</Button>
+                  <Button id="SeeAll">See All</Button>
+                </div>
+              </div>
+            </div>
+          </FormGroup>
+        </Form>
+      </div>
     );
   }
 }
