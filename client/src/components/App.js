@@ -9,6 +9,7 @@ import SignInPage from './signin/';
 import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
+import ToDoPage from './toDo/';
 import { firebase } from '../firebase';
 import Availability from './Availability';
 import axios from 'axios';
@@ -25,43 +26,6 @@ class App extends Component {
       loaded: false
     };
   }
-  //show user's email, displayName, phoneNumber, and photoURL
-  /*showUser = () => {
-    if (this.state.authUser !== null && this.state.authUser !== "undefined") {
-      const userUid = this.state.authUser.uid;
-      const usersEmail = this.state.authUser.email;
-      //const userName = this.state.authUser.displayName;
-      console.log(userUid, usersEmail);
-      console.log("uid : " + this.state.authUser.uid);
-      this.saveUser(userUid, usersEmail);
-      console.log("done");
-    } else if (this.state.authUser === null) {
-      console.log("no user is logged in");
-    }
-  };
-  //
-  saveUser = (a, b) => {
-    console.log("saving user");
-    if (
-      this.state.authUser !== null &&
-      this.state.authUser !== "undefined" &&
-      this.state.authUser !== "error"
-    ) {
-      console.log("a, b: " + a, b);
-      API.newUser({
-        uid: a,
-        userEmail: b
-      })
-        .then(res => {
-          console.log("Success");
-          console.log(res);
-        })
-        .catch(error => {
-          console.log("saveUser(): " + error);
-        });
-    }
-  };
-  */
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(blah => {
@@ -87,8 +51,8 @@ class App extends Component {
             exact
             path={routes.SIGN_UP}
             component={SignUpPage}
-            //saveNew={this.saveUser}
-            //clog={this.showUser()}
+          //saveNew={this.saveUser}
+          //clog={this.showUser()}
           />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
@@ -111,6 +75,14 @@ class App extends Component {
             )}
           />
           <Route exact path={routes.AVAILABILITY} component={Availability} />
+
+          <Route
+            exact
+            path={routes.TODO}
+            render={props => (
+              <ToDoPage authUser={this.state.authUser} {...props} />
+            )}
+          />
           <Route exact path={routes.LOGIN} component={Login} />
         </div>
       </Router>
