@@ -7,6 +7,8 @@ const personalCalender = require('../../controllers/controller.js');
 router
   .post('/', personalCalender.newUser)
   .get('/', personalCalender.findEverything);
+router.get('/events', personalCalender.findTodayEvent);
+router.get('/one', personalCalender.findOnePerson);
 //update userEmail's startDate and endDate
 router.post('/update/:userEmail', personalCalender.update);
 module.exports = router;
