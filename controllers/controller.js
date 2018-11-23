@@ -1,5 +1,9 @@
 //require in schema models
 const db = require('../models/export.js');
+const moment = require('moment');
+let today = moment().startOf('day');
+let tomorrow = moment(today).endOf('day');
+
 //creatung object to export
 module.exports = {
   //find everything
@@ -40,6 +44,38 @@ module.exports = {
         { userEmail: req.params.userEmail },
         { startDate: req.body.startDate, endDate: req.body.endDate }
       )
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
+        }
+      });
+  },
+  //find one userEMail
+  findOnePerson: function(req, res) {
+    db.myCalender
+      .find({ userEmail: req.body.userEmail })
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
+        }
+      });
+  },
+  //find by the email and Date
+  findTodayEvent: function(req, res) {
+    db.myCalender
+      .find({
+        userEmail: req.body.userEmail,
+        date: {
+          $gte: today.toDate(),
+          $lt: tomorrow.toDate()
+        }
+      })
       .then(success => {
         res.json(success);
       })
