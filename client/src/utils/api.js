@@ -13,6 +13,12 @@ export default {
   //update one startdate endate
   updateDate: function(id, data) {
     return axios.put('/api/personal/mycalendar/update' + id, data);
+  },
+  findOne: function(data) {
+    return axios.get('/api/personal/mycalendar/one', data);
+  },
+  findTodaysEvent: function(data) {
+    return axios.get('/api/personal/mycalendar/events', data);
   }
 };
 
