@@ -1,4 +1,38 @@
-//require in mongoose npm package
+//require in mongoose npm
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+//create calendar Schema
+let calenderSchema = new Schema({
+  //userEmail
+  userEmail: {
+    type: String,
+    //unique: true,
+    required: true
+  },
+  date: {
+    type: Date,
+    required: true
+  },
+  startTime: {
+    type: String,
+    required: true
+  },
+  endTime: {
+    type: String,
+    required: true
+  },
+  //nice to haves
+  masterCalender: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'masterCalender'
+    }
+  ]
+});
+const myCalender = mongoose.model('myCalender', calenderSchema);
+module.exports = myCalender;
+
+/*//require in mongoose npm package
 const mongoose = require('mongoose');
 const validator = require('validator');
 //create a new schema model
@@ -24,8 +58,6 @@ let calenderSchema = new Schema({
   //link for the article
   name: {
     type: String
-    /*,
-    required: true*/
   },
   //personal Calendar
   personalCalendar: [
@@ -45,3 +77,4 @@ let calenderSchema = new Schema({
 //create the article model with the articleSchema
 const myCalender = mongoose.model('myCalender', calenderSchema);
 module.exports = myCalender;
+*/

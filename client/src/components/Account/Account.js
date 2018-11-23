@@ -15,7 +15,7 @@ firebase.auth.onAuthStateChanged(user => {
     //console.log(user);
     console.log(authUser, authUid);
     //find user by uid, if user does not exisit make a user
-    API.findUid(authUid).then(data => {
+    /* API.findUid(authUid).then(data => {
       console.log('hit api authuid @ account js line 19');
       console.log(data);
       if (!data.length) {
@@ -32,7 +32,7 @@ firebase.auth.onAuthStateChanged(user => {
             }
           });
       }
-    });
+    });*/
     //
   } else {
     // No user is signed in.
