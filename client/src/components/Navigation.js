@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import SignOutButton from "./SignOut";
-import * as routes from "../constants/routes";
-import "./Navigation.css";
-import icon from "./images/icon.jpg";
+import SignOutButton from './SignOut';
+import * as routes from '../constants/routes';
+import './Navigation.css';
+import icon from './images/icon.jpg';
 
 const Navigation = ({ authUser }) => (
   <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
