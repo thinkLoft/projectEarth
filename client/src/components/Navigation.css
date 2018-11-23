@@ -5,12 +5,16 @@ a{
   font-size: 20px;
 }
 
-.navbar-nav{
-  margin-left:75%;
+.navbar{
+  margin: 0 auto;
 }
 
 .authorized{
-  margin-left: 65%;
+  margin-left: 55%;
+}
+
+.unauthorized{
+  margin-left: 75%;
 }
 
 .calendarIcon{
