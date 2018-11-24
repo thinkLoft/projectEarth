@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //create calendar Schema
-let calenderSchema = new Schema({
+let calendarSchema = new Schema({
   //userEmail
   userEmail: {
     type: String,
@@ -22,23 +22,23 @@ let calenderSchema = new Schema({
     required: true
   },
   //nice to haves
-  masterCalender: [
+  masterCalendar: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'masterCalender'
+      ref: 'masterCalendar'
     }
   ]
 });
-const myCalender = mongoose.model('myCalender', calenderSchema);
-module.exports = myCalender;
+const myCalendar = mongoose.model('myCalendar', calendarSchema);
+module.exports = myCalendar;
 
 /*//require in mongoose npm package
 const mongoose = require('mongoose');
 const validator = require('validator');
 //create a new schema model
 const Schema = mongoose.Schema;
-//create calenderSchema
-let calenderSchema = new Schema({
+//create calendarSchema
+let calendarSchema = new Schema({
   //userEmail, intially commenting out required: true for testing
   uid: {
     type: String,
@@ -66,15 +66,15 @@ let calenderSchema = new Schema({
       endDate: Date
     }
   ],
-  //association with other people for shared calenders
-  masterCalender: [
+  //association with other people for shared calendars
+  masterCalendar: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'masterCalender'
+      ref: 'masterCalendar'
     }
   ]
 });
 //create the article model with the articleSchema
-const myCalender = mongoose.model('myCalender', calenderSchema);
-module.exports = myCalender;
+const myCalendar = mongoose.model('myCalendar', calendarSchema);
+module.exports = myCalendar;
 */
