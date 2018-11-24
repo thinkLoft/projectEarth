@@ -4,6 +4,7 @@ import './Form.css';
 import Calendar from 'react-calendar';
 import API from '../utils/api';
 import moment from 'moment';
+import TodayList from './formtodaylist/formtodaylist.js';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -12,7 +13,14 @@ export default class freeForm extends React.Component {
     // uid: this.props.uid,
     date: new Date(),
     startTime: '',
-    endTime: ''
+    endTime: '',
+    showTodayComponent: false
+  };
+
+  onTodayButtonClick = () => {
+    this.setState({
+      showTodayComponent: true
+    });
   };
 
   // For all other inputs
@@ -189,9 +197,21 @@ export default class freeForm extends React.Component {
               </div>
               <div className="col-md-4 seeingAllEvents">
                 <div className="buttonEvents">
-                  <Button id="today" onClick={this.handletodayAvailabilities}>
+                  <Button
+                    id="today"
+                    onClick={
+                      this.onTodayButtonClick /*this.handletodayAvailabilities*/
+                    }
+                  >
                     Today
                   </Button>
+                  {this.state.showTodayComponent ? (
+                    <TodayList
+                      userEmail={this.state.email}
+                      date={this.state.date}
+                    />
+                  ) : null}
+
                   <Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
                     See All
                   </Button>
