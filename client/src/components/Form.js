@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
-import Calendar from 'react-calendar';
+import { Calendar, TileContent } from 'react-calendar';
 import API from '../utils/api';
 import moment from 'moment';
 import TodayAvails from './formtodaylist/formtodaylist.js';
@@ -134,6 +134,10 @@ export default class freeForm extends React.Component {
   };
 
   render() {
+    let object = {
+      one: { date: this.state.date, startTime: 1230, endTime: 1311 },
+      two: { date: this.state.date, startTime: 1420, endTime: 1540 }
+    };
     return (
       <div className="container calendar-form">
         <Form>
@@ -144,7 +148,11 @@ export default class freeForm extends React.Component {
                   name="date"
                   onChange={this.onChange}
                   value={this.state.date}
-                />
+                  {...console.log(object)}
+                >
+                  <TileContent value={this.state.date} />
+                </Calendar>
+
                 <Label for="email">Email</Label>
                 <Input
                   id="myEmail"
