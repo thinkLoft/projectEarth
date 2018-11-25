@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import './Form.css';
-import Calendar from 'react-calendar';
-import API from '../utils/api';
+import React from "react";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "./Form.css";
+import Calendar from "react-calendar";
+import API from "../utils/api";
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -10,8 +10,8 @@ export default class freeForm extends React.Component {
     email: this.props.email,
     // uid: this.props.uid,
     date: new Date(),
-    startTime: '',
-    endTime: ''
+    startTime: "",
+    endTime: ""
   };
 
   // For all other inputs
@@ -45,12 +45,13 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
-      this.state.email != 'undefined' &&
+      this.state.email != "undefined" &&
       this.state.date !== null
     ) {
-      console.log('hello');
+      console.log("hello");
     }
   };
+
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
@@ -68,7 +69,7 @@ export default class freeForm extends React.Component {
         this.state.endTime
       );
     }
-    console.log('hello from the submit');
+    console.log("hello from the submit");
   };
 
   render() {
@@ -121,7 +122,7 @@ export default class freeForm extends React.Component {
                   disabled={!(this.state.startTime && this.state.endTime)}
                   onClick={this.handleFormSubmit}
                 >
-                  Ad Freetime
+                  Add Freetime
                 </Button>
               </div>
               <div className="col-lg-4 seeingAllEvents">

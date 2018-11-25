@@ -1,4 +1,5 @@
 module.exports = {
-  myCalender: require('./calendar'),
-  masterCalender: require('./sharedCalendar')
+  myCalender: require("./calendar"),
+  masterCalender: require("./sharedCalendar"),
+  toDo: require("./toDo")
 };

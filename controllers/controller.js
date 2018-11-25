@@ -1,5 +1,5 @@
 //require in schema models
-const db = require('../models/export.js');
+const db = require("../models/export.js");
 //creatung object to export
 module.exports = {
   //find everything
@@ -11,7 +11,7 @@ module.exports = {
       })
       .catch(error => {
         if (error) {
-          res.status(422).json(error + ' error');
+          res.status(422).json(error + " error");
         }
       });
   },
@@ -39,6 +39,58 @@ module.exports = {
       .update(
         { userEmail: req.params.userEmail },
         { startDate: req.body.startDate, endDate: req.body.endDate }
+      )
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
+        }
+      });
+  },
+
+  newTask: function(req, res) {
+    db.toDo
+      .create({
+        email: req.body.email,
+        date: req.body.date,
+        title: req.body.title,
+        task: req.body.task,
+        deadline: req.body.deadline
+      })
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(500).json(error);
+        }
+      });
+  },
+
+  findAllToDos: function(req, res) {
+    db.toDo
+      .find()
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error + " error");
+        }
+      });
+  },
+
+  updateToDos: function(req, res) {
+    db.toDo
+      .update(
+        { email: req.params.email },
+        {
+          title: req.body.title,
+          task: req.body.task,
+          deadline: req.body.deadline
+        }
       )
       .then(success => {
         res.json(success);
