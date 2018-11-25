@@ -8,7 +8,8 @@ export default class TodayAvails extends React.Component {
   state = {
     email: this.props.useremail,
     date: this.props.date,
-    startend: []
+    startend: [],
+    test: []
   };
   componentDidMount() {
     this.todaysAvailabilities();
@@ -18,11 +19,8 @@ export default class TodayAvails extends React.Component {
     API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
       .then(res => {
         //map over data and console log start and endtimes
-        res.data.map(times => {
-          console.log(times.startTime, times.endTime);
-          this.setState({
-            starttime: times.startTime
-          });
+        this.setState({
+          startend: res.data
         });
       })
       .catch(error => {
@@ -34,10 +32,17 @@ export default class TodayAvails extends React.Component {
   render() {
     console.log(this.state.email);
     console.log(this.state.date);
-    console.log(this.state.endtime, this.state.starttime);
+    console.log(this.state.startend);
     return (
       <div>
         <p>Hello</p>
+        {this.state.startend.map(startending => {
+          return (
+            <p>
+              {startending.startTime} to {startending.endTime}
+            </p>
+          );
+        })}
       </div>
     );
   }
