@@ -203,9 +203,9 @@ export default class freeForm extends React.Component {
                     />
                   ) : null}
 
-                  <Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
+                  {/*<Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
                     See All
-                  </Button>
+                  </Button>*/}
                 </div>
               </div>
             </div>
