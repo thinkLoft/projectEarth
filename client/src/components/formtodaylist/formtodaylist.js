@@ -37,9 +37,12 @@ export default class TodayAvails extends React.Component {
         <p>Hello</p>
         {this.state.startend.map(startending => {
           return (
-            <p>
-              {startending.startTime} to {startending.endTime}
-            </p>
+            <div>
+              <p>{startending._id}</p>
+              <p>
+                {startending.startTime} to {startending.endTime}
+              </p>
+            </div>
           );
         })}
       </div>
