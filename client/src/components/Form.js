@@ -4,7 +4,7 @@ import './Form.css';
 import Calendar from 'react-calendar';
 import API from '../utils/api';
 import moment from 'moment';
-import TodayList from './formtodaylist/formtodaylist.js';
+import TodayAvails from './formtodaylist/formtodaylist.js';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -16,7 +16,6 @@ export default class freeForm extends React.Component {
     endTime: '',
     showTodayComponent: false
   };
-
   onTodayButtonClick = () => {
     this.setState({
       showTodayComponent: true
@@ -122,15 +121,7 @@ export default class freeForm extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-      console.log({
-        // uid: this.state.uid,
-        email: this.state.email,
-        date: this.state.date,
-        startTime: this.state.startTime,
-        endTime: this.state.endTime
-      });
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
-      console.log(newDate);
       console.log('saving new user line 67 on form js');
       this.saveUser(
         this.state.email,
@@ -206,8 +197,8 @@ export default class freeForm extends React.Component {
                     Today
                   </Button>
                   {this.state.showTodayComponent ? (
-                    <TodayList
-                      userEmail={this.state.email}
+                    <TodayAvails
+                      useremail={this.state.email}
                       date={this.state.date}
                     />
                   ) : null}
