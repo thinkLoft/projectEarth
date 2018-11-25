@@ -1,6 +1,7 @@
-/* .detailedCalendar {
-  width: 1000px;
-  height: 575px;
-  background-color: rgb(0, 234, 255);
+.detailedCalendar {
+  /* width: 1000px;
+  height: 575px; */
+  background-color: white;
+  padding: 20px;
   margin-bottom: 25px;
-} */
+}

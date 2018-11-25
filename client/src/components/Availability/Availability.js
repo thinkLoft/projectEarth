@@ -7,19 +7,16 @@ import "./Availability.css";
 
 import ReactDOM from "react-dom";
 import FullCalendar from "fullcalendar-reactwrapper";
-// import External from "./External";
-import ModalExample from "./Modal";
 
 import $ from "jquery";
 import "moment/min/moment.min.js";
 
-const Availability = () => (
+const AvailabilityPage = () => (
   <div id="seeTime" id="app" class="container">
-    <div class="container detailedCalendar">
+    <div className="container detailedCalendar">
       <FullCalendar />
-      <ModalExample />
     </div>
   </div>
 );
 
-export default Availability;
+export default AvailabilityPage;

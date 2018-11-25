@@ -11,11 +11,11 @@ const Navigation = ({ authUser }) => (
 );
 
 const NavigationAuth = () => (
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="calendarIcon" src={icon} alt="calendarIcon" />
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <img className="calendarIcon" src={icon} alt="calendarIcon" />
     <Link to={routes.LANDING}>Free Time</Link>
     <button
-      class="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#navbarNav"
@@ -23,19 +23,19 @@ const NavigationAuth = () => (
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon" />
+      <span className="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav authorized">
-        <li class="nav-item active">
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav authorized">
+        <li className="nav-item active">
           <Link to={routes.HOME}>
-            Home<span class="sr-only">(current)</span>
+            Home<span className="sr-only">(current)</span>
           </Link>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <Link to={routes.ACCOUNT}>Account</Link>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <Link to={routes.AVAILABILITY}>Availability</Link>
         </li>
         <SignOutButton />
@@ -45,11 +45,11 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="calendarIcon" src={icon} alt="calendarIcon" />
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <img className="calendarIcon" src={icon} alt="calendarIcon" />
     <Link to={routes.LANDING}>Free Time</Link>
     <button
-      class="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-toggle="collapse"
       data-target="#navbarNav"
@@ -57,19 +57,19 @@ const NavigationNonAuth = () => (
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon" />
+      <span className="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item active">
           <Link to={routes.LANDING}>
-            Home<span class="sr-only">(current)</span>
+            Landing<span className="sr-only">(current)</span>
           </Link>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <Link to={routes.SIGN_IN}>Login</Link>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <Link to={routes.SIGN_UP}>Sign Up</Link>
         </li>
       </ul>
