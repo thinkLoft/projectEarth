@@ -1,2 +1,2 @@
-export * from './list.js';
-export * from './listitem.js';
+export { List } from './List';
+export { ListItem } from './listitem';
