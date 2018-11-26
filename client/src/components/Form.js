@@ -14,14 +14,11 @@ export default class freeForm extends React.Component {
     date: new Date(),
     startTime: '',
     endTime: '',
-    showTodayComponent: false
+    startend: []
   };
-  onTodayButtonClick = () => {
-    this.setState({
-      showTodayComponent: true
-    });
-  };
-
+  componentDidMount() {
+    this.todaysAvailabilities();
+  }
   // For all other inputs
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -41,6 +38,7 @@ export default class freeForm extends React.Component {
       .then(success => {
         console.log(success);
         console.log(`Line 35 @line js file success`);
+        this.todaysAvailabilities();
       })
       .catch(error => {
         if (error) {
@@ -49,17 +47,14 @@ export default class freeForm extends React.Component {
       });
   };
   //see all availabilities based on today
-  todaysAvailabilities = (theemail, thedate) => {
+  todaysAvailabilities = () => {
+    let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
     console.log('hello from todays availabilitie fn on line 46');
-    API.findTodaysEvent({ userEmail: theemail, date: thedate })
+    API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
       .then(res => {
         //map over data and console log start and endtimes
-        res.data.map(times => {
-          console.log(
-            'Start Time: ' + times.startTime,
-            'end time: ' + times.endTime
-          );
-        });
+        this.setState({ startend: res.data });
+        console.log(`thisstartEnd: ${this.state.startend}`);
       })
       .catch(error => {
         if (error) {
@@ -98,7 +93,8 @@ export default class freeForm extends React.Component {
       let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
       let todaysEmail = this.state.email;
       if (todaysDate !== null) {
-        this.todaysAvailabilities(todaysEmail, todaysDate);
+        //this.todaysAvailabilities(todaysEmail, todaysDate);
+        console.log('test');
         //this.allMyAvailabilties(this.state.email);
       }
     } else {
@@ -134,10 +130,6 @@ export default class freeForm extends React.Component {
   };
 
   render() {
-    let object = {
-      one: { date: this.state.date, startTime: 1230, endTime: 1311 },
-      two: { date: this.state.date, startTime: 1420, endTime: 1540 }
-    };
     return (
       <div className="container calendar-form">
         <Form>
@@ -148,10 +140,7 @@ export default class freeForm extends React.Component {
                   name="date"
                   onChange={this.onChange}
                   value={this.state.date}
-                  {...console.log(object)}
-                >
-                  <TileContent value={this.state.date} />
-                </Calendar>
+                />
 
                 <Label for="email">Email</Label>
                 <Input
@@ -196,21 +185,18 @@ export default class freeForm extends React.Component {
               </div>
               <div className="col-md-4 seeingAllEvents">
                 <div className="buttonEvents">
-                  <Button
-                    id="today"
-                    onClick={
-                      this.onTodayButtonClick /*this.handletodayAvailabilities*/
-                    }
-                  >
-                    Today
-                  </Button>
-                  {this.state.showTodayComponent ? (
-                    <TodayAvails
-                      useremail={this.state.email}
-                      date={this.state.date}
-                    />
-                  ) : null}
-
+                  <div>
+                    {this.state.startend.map(startending => {
+                      return (
+                        <TodayAvails
+                          key={startending._id}
+                          //date={startending.date}
+                          startTime={startending.startTime}
+                          endTime={startending.endTime}
+                        />
+                      );
+                    })}
+                  </div>
                   {/*<Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
                     See All
                   </Button>*/}

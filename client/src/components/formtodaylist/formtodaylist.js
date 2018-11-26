@@ -3,7 +3,19 @@ import './formtodaylist.css';
 import moment from 'moment';
 import API from '../../utils/api';
 
-export default class TodayAvails extends React.Component {
+const TodayAvails = props => {
+  return (
+    <div>
+      <div>{props.date}</div>
+      <p>
+        {props.startTime} to {props.endTime}
+      </p>
+    </div>
+  );
+};
+export default TodayAvails;
+
+/*export default class TodayAvails extends React.Component {
   state = {
     email: this.props.useremail,
     date: this.props.date,
@@ -48,4 +60,4 @@ export default class TodayAvails extends React.Component {
       </div>
     );
   }
-}
+}*/
