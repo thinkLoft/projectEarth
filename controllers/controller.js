@@ -1,9 +1,13 @@
 //require in schema models
+<<<<<<< HEAD
 const db = require('../models/export.js');
 const moment = require('moment');
 let today = moment().startOf('day');
 let tomorrow = moment(today).endOf('day');
 
+=======
+const db = require("../models/export.js");
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
 //creatung object to export
 module.exports = {
   //find everything
@@ -15,7 +19,7 @@ module.exports = {
       })
       .catch(error => {
         if (error) {
-          res.status(422).json(error + ' error');
+          res.status(422).json(error + " error");
         }
       });
   },
@@ -53,15 +57,29 @@ module.exports = {
         }
       });
   },
+<<<<<<< HEAD
   //find one userEMail
   findOnePerson: function(req, res) {
     db.myCalendar
       .find({ userEmail: req.query.userEmail })
+=======
+
+  newTask: function(req, res) {
+    db.toDo
+      .create({
+        email: req.body.email,
+        date: req.body.date,
+        title: req.body.title,
+        task: req.body.task,
+        deadline: req.body.deadline
+      })
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
       .then(success => {
         res.json(success);
       })
       .catch(error => {
         if (error) {
+<<<<<<< HEAD
           res.status(422).json(error);
         }
       });
@@ -73,6 +91,36 @@ module.exports = {
         userEmail: req.query.userEmail,
         date: req.query.date
       })
+=======
+          res.status(500).json(error);
+        }
+      });
+  },
+
+  findAllToDos: function(req, res) {
+    db.toDo
+      .find()
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error + " error");
+        }
+      });
+  },
+
+  updateToDos: function(req, res) {
+    db.toDo
+      .update(
+        { email: req.params.email },
+        {
+          title: req.body.title,
+          task: req.body.task,
+          deadline: req.body.deadline
+        }
+      )
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
       .then(success => {
         res.json(success);
       })

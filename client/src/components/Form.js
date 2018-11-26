@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
 import Calendar from 'react-calendar';
 import API from '../utils/api';
 import moment from 'moment';
+=======
+import React from "react";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "./Form.css";
+import Calendar from "react-calendar";
+import API from "../utils/api";
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -11,8 +19,8 @@ export default class freeForm extends React.Component {
     email: this.props.email,
     // uid: this.props.uid,
     date: new Date(),
-    startTime: '',
-    endTime: ''
+    startTime: "",
+    endTime: ""
   };
 
   // For all other inputs
@@ -104,13 +112,21 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
+<<<<<<< HEAD
       this.state.email !== 'undefined' &&
       this.state.date !== null
     ) {
       console.log('hello from see all');
       this.allMyAvailabilties(this.state.email);
+=======
+      this.state.email != "undefined" &&
+      this.state.date !== null
+    ) {
+      console.log("hello");
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
     }
   };
+
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
@@ -132,6 +148,10 @@ export default class freeForm extends React.Component {
       );
       console.log('after saving user @line 74 of form js');
     }
+<<<<<<< HEAD
+=======
+    console.log("hello from the submit");
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
   };
 
   render() {
@@ -184,7 +204,7 @@ export default class freeForm extends React.Component {
                   disabled={!(this.state.startTime && this.state.endTime)}
                   onClick={this.handleFormSubmit}
                 >
-                  Ad Freetime
+                  Add Freetime
                 </Button>
               </div>
               <div className="col-md-4 seeingAllEvents">
