@@ -1,6 +1,5 @@
 import React from 'react';
 import './formtodaylist.css';
-import moment from 'moment';
 import API from '../../utils/api';
 
 const TodayAvails = props => {
