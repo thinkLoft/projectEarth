@@ -14,16 +14,7 @@ export default class freeForm extends React.Component {
     date: new Date(),
     startTime: '',
     endTime: '',
-<<<<<<< HEAD
     startend: []
-=======
-    showTodayComponent: false
-  };
-  onTodayButtonClick = () => {
-    this.setState({
-      showTodayComponent: true
-    });
->>>>>>> a72ce5cd13424fd0f7f0b3f817265235c3488942
   };
   componentDidMount() {
     this.todaysAvailabilities();
@@ -153,14 +144,7 @@ export default class freeForm extends React.Component {
                   name="date"
                   onChange={this.onChange}
                   value={this.state.date}
-<<<<<<< HEAD
                 />
-=======
-                  {...console.log(object)}
-                >
-                  <TileContent value={this.state.date} />
-                </Calendar>
->>>>>>> a72ce5cd13424fd0f7f0b3f817265235c3488942
 
                 <Label for="email">Email</Label>
                 <Input
@@ -205,7 +189,6 @@ export default class freeForm extends React.Component {
               </div>
               <div className="col-md-4 seeingAllEvents">
                 <div className="buttonEvents">
-<<<<<<< HEAD
                   <div>
                     {this.state.startend.map(startending => {
                       return (
@@ -218,23 +201,6 @@ export default class freeForm extends React.Component {
                       );
                     })}
                   </div>
-=======
-                  <Button
-                    id="today"
-                    onClick={
-                      this.onTodayButtonClick /*this.handletodayAvailabilities*/
-                    }
-                  >
-                    Today
-                  </Button>
-                  {this.state.showTodayComponent ? (
-                    <TodayAvails
-                      useremail={this.state.email}
-                      date={this.state.date}
-                    />
-                  ) : null}
-
->>>>>>> a72ce5cd13424fd0f7f0b3f817265235c3488942
                   {/*<Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
                     See All
                   </Button>*/}
