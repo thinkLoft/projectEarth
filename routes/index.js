@@ -1,11 +1,9 @@
 const path = require("path");
 const express = require("express");
 const router = express.Router();
-const myCalenderRoutes = require("./personalCalender");
-
-//personal calender routes
-router.use("/api/personal", myCalenderRoutes);
-
+const myCalendarRoutes = require("./personalCalendar");
+//personal calendar routes
+router.use("/api/personal", myCalendarRoutes);
 //if no routes hit, send to React application
 router.use(function(req, res) {
   //dont use direct paths, to avoid breaking in production

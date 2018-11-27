@@ -20,13 +20,12 @@
   width: 300px;
 }
 .seeingAllEvents {
-  margin-left: 300px;
+  margin-left: 50px;
 }
 .buttonEvents {
   text-align: center;
-  display: inline-block;
+  width: 400px;
 }
-#today,
 #SeeAll {
-  display: inline-block;
+  margin-left: 100px;
 }

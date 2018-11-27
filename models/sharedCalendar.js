@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 //create a new schema class
 const Schema = mongoose.Schema;
 //create schema for comments
-const sharedCalenderSchema = new Schema({
-  masterCalenderId: {
+const sharedCalendarSchema = new Schema({
+  masterCalendarId: {
     type: String,
     required: false
   },
@@ -16,5 +16,5 @@ const sharedCalenderSchema = new Schema({
     type: Date
   }
 });
-const masterCalender = mongoose.model('masterCalender', sharedCalenderSchema);
-module.exports = masterCalender;
+const masterCalendar = mongoose.model('masterCalendar', sharedCalendarSchema);
+module.exports = masterCalendar;
