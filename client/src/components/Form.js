@@ -5,6 +5,7 @@ import { Calendar, TileContent } from 'react-calendar';
 import API from '../utils/api';
 import moment from 'moment';
 import TodayAvails from './formtodaylist/formtodaylist.js';
+import List from './formtodaylist/list.js';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -27,7 +28,10 @@ export default class freeForm extends React.Component {
     });
   };
   // for Calendar
-  onChange = date => this.setState({ date });
+  onChange = date => {
+    this.setState({ date });
+    this.todaysAvailabilities();
+  };
   saveUser = (a, b, c, d) => {
     API.newUser({
       userEmail: a,
@@ -119,12 +123,16 @@ export default class freeForm extends React.Component {
     if (this.state.startTime && this.state.endTime) {
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
       console.log('saving new user line 67 on form js');
-      this.saveUser(
-        this.state.email,
-        newDate,
-        this.state.startTime,
-        this.state.endTime
-      );
+      if (this.state.startTime < this.state.endTime) {
+        this.saveUser(
+          this.state.email,
+          newDate,
+          this.state.startTime,
+          this.state.endTime
+        );
+      } else {
+        console.log('The end Time must be after the start time');
+      }
       console.log('after saving user @line 74 of form js');
     }
   };
@@ -190,16 +198,18 @@ export default class freeForm extends React.Component {
               <div className="col-md-4 seeingAllEvents">
                 <div className="buttonEvents">
                   <div>
-                    {this.state.startend.map(startending => {
-                      return (
-                        <TodayAvails
-                          key={startending._id}
-                          //date={startending.date}
-                          startTime={startending.startTime}
-                          endTime={startending.endTime}
-                        />
-                      );
-                    })}
+                    <List value={this.state.date}>
+                      {this.state.startend.map(startending => {
+                        return (
+                          <TodayAvails
+                            key={startending._id}
+                            newDate={startending.date}
+                            startTime={startending.startTime}
+                            endTime={startending.endTime}
+                          />
+                        );
+                      })}
+                    </List>
                   </div>
                   {/*<Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
                     See All
