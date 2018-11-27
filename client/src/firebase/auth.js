@@ -1,7 +1,5 @@
-import { auth } from "./firebase";
-import { userInfo } from "os";
-import axios from "axios";
-import API from "../utils/api.js";
+import { auth } from './firebase';
+import { userInfo } from 'os';
 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
@@ -33,11 +31,11 @@ auth.onAuthStateChanged(user => {
     const phoneNumber = user.phoneNumber;
     const photoUrl = user.photoURL;
     console.log(
-      "user login status: " +
+      'user login status: ' +
         `The user's email: ${userEmail}\n The user's displayName if it exisits: ${displayName}\n The user's phone number if it exisits: ${phoneNumber}\n The user's photoUrl if it exists: ${photoUrl}\n`
     );
   } else {
     // No user is signed in.
-    console.log("user login status: " + "There is no logged in user");
+    console.log('user login status: There is no logged in user');
   }
 });
