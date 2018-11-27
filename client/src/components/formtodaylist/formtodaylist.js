@@ -1,11 +1,10 @@
 import React from 'react';
 import './formtodaylist.css';
 import API from '../../utils/api';
-
 const TodayAvails = props => {
+  console.log(props);
   return (
     <div>
-      <div>{props.date}</div>
       <p>
         {props.startTime} to {props.endTime}
       </p>
