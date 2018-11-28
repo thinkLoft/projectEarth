@@ -34,12 +34,15 @@ export default class freeForm extends React.Component {
     this.setState({ date });
     // this.todaysAvailabilities();
   };
-  saveUser = (a, b, c, d) => {
+  saveUser = (a, b, c, d, e, f, g) => {
     API.newUser({
       userEmail: a,
       date: b,
       startTime: c,
-      endTime: d
+      endTime: d,
+      title: e,
+      task: f,
+      deadline: g
     })
       // .then(() => {
       //   this.todaysAvailabilities();
