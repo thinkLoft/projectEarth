@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
-import Calendar from 'react-calendar';
+import { Calendar, TileContent } from 'react-calendar';
 import API from '../utils/api';
 import moment from 'moment';
+import TodayAvails from './formtodaylist/formtodaylist.js';
+import List from './formtodaylist/list.js';
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -12,9 +14,12 @@ export default class freeForm extends React.Component {
     // uid: this.props.uid,
     date: new Date(),
     startTime: '',
-    endTime: ''
+    endTime: '',
+    startend: []
   };
-
+  componentDidMount() {
+    this.todaysAvailabilities();
+  }
   // For all other inputs
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -23,7 +28,10 @@ export default class freeForm extends React.Component {
     });
   };
   // for Calendar
-  onChange = date => this.setState({ date });
+  onChange = date => {
+    this.setState({ date });
+    this.todaysAvailabilities();
+  };
   saveUser = (a, b, c, d) => {
     API.newUser({
       userEmail: a,
@@ -34,6 +42,7 @@ export default class freeForm extends React.Component {
       .then(success => {
         console.log(success);
         console.log(`Line 35 @line js file success`);
+        this.todaysAvailabilities();
       })
       .catch(error => {
         if (error) {
@@ -42,17 +51,14 @@ export default class freeForm extends React.Component {
       });
   };
   //see all availabilities based on today
-  todaysAvailabilities = (theemail, thedate) => {
+  todaysAvailabilities = () => {
+    let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
     console.log('hello from todays availabilitie fn on line 46');
-    API.findTodaysEvent({ userEmail: theemail, date: thedate })
+    API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
       .then(res => {
         //map over data and console log start and endtimes
-        res.data.map(times => {
-          console.log(
-            'Start Time: ' + times.startTime,
-            'end time: ' + times.endTime
-          );
-        });
+        this.setState({ startend: res.data });
+        console.log(`thisstartEnd: ${this.state.startend}`);
       })
       .catch(error => {
         if (error) {
@@ -91,7 +97,8 @@ export default class freeForm extends React.Component {
       let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
       let todaysEmail = this.state.email;
       if (todaysDate !== null) {
-        this.todaysAvailabilities(todaysEmail, todaysDate);
+        //this.todaysAvailabilities(todaysEmail, todaysDate);
+        console.log('test');
         //this.allMyAvailabilties(this.state.email);
       }
     } else {
@@ -114,27 +121,27 @@ export default class freeForm extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-      console.log({
-        // uid: this.state.uid,
-        email: this.state.email,
-        date: this.state.date,
-        startTime: this.state.startTime,
-        endTime: this.state.endTime
-      });
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
-      console.log(newDate);
       console.log('saving new user line 67 on form js');
-      this.saveUser(
-        this.state.email,
-        newDate,
-        this.state.startTime,
-        this.state.endTime
-      );
+      if (this.state.startTime < this.state.endTime) {
+        this.saveUser(
+          this.state.email,
+          newDate,
+          this.state.startTime,
+          this.state.endTime
+        );
+      } else {
+        console.log('The end Time must be after the start time');
+      }
       console.log('after saving user @line 74 of form js');
     }
   };
 
   render() {
+    let object = {
+      one: { date: this.state.date, startTime: 1230, endTime: 1311 },
+      two: { date: this.state.date, startTime: 1420, endTime: 1540 }
+    };
     return (
       <div className="container calendar-form">
         <Form>
@@ -146,6 +153,7 @@ export default class freeForm extends React.Component {
                   onChange={this.onChange}
                   value={this.state.date}
                 />
+
                 <Label for="email">Email</Label>
                 <Input
                   id="myEmail"
@@ -189,12 +197,23 @@ export default class freeForm extends React.Component {
               </div>
               <div className="col-md-4 seeingAllEvents">
                 <div className="buttonEvents">
-                  <Button id="today" onClick={this.handletodayAvailabilities}>
-                    Today
-                  </Button>
-                  <Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
+                  <div>
+                    <List value={this.state.date}>
+                      {this.state.startend.map(startending => {
+                        return (
+                          <TodayAvails
+                            key={startending._id}
+                            newDate={startending.date}
+                            startTime={startending.startTime}
+                            endTime={startending.endTime}
+                          />
+                        );
+                      })}
+                    </List>
+                  </div>
+                  {/*<Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
                     See All
-                  </Button>
+                  </Button>*/}
                 </div>
               </div>
             </div>
