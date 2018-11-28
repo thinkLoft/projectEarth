@@ -67,6 +67,29 @@ const HomePage = ({ authUser }) => (
           </div>
         </div>
       </div>
+
+      <div className="col">
+        <div className="card">
+          <div className="text">So...when are you free?</div>
+          <div className="overlay">
+            <img
+              className="card-img-top"
+              width="200px"
+              height="250px"
+              src={mutual}
+              alt="Card cap"
+            />
+            <div className="card-body">
+              <h5 className="card-title">Mutual Availability</h5>
+              <p className="card-text">
+                Take the pain out of scheduling meetings. Free time will show
+                you mutual availability based on everyone's inputs. Just choose
+                an option and you're good to go!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 );
