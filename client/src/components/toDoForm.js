@@ -14,7 +14,7 @@ export default class freeForm extends React.Component {
                 <Label for="title">Title</Label>
                 <Input id="task-title"
                 />
-                <label for="exampleFormControlTextarea1">Example textarea</label>
+                <label for="exampleFormControlTextarea1">Details</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 <Label for="dueDate">Complete by:</Label>
                 <Input
