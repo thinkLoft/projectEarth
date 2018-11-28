@@ -32,7 +32,28 @@ const LandingPage = () => (
 
       <div className="col-3">
         <div className="card">
-          <div className="text">Let me make sure...</div>
+          <div className="text">But not during these times...</div>
+          <div className="overlay">
+            <img
+              className="card-img-top"
+              width="200px"
+              height="300px"
+              src={todo}
+              alt="Card cap"
+            />
+            <div className="card-body">
+              <h5 className="card-title">To-Do List</h5>
+              <p className="card-text">
+                Stay organized and keep track of all your tasks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-3">
+        <div className="card">
+          <div className="text">In the grand scheme of things</div>
           <div className="overlay">
             <img
               className="card-img-top"
@@ -75,26 +96,7 @@ const LandingPage = () => (
         </div>
       </div>
 
-      <div className="col-3">
-        <div className="card">
-          <div className="text">I am VERY busy...</div>
-          <div className="overlay">
-            <img
-              className="card-img-top"
-              width="200px"
-              height="300px"
-              src={todo}
-              alt="Card cap"
-            />
-            <div className="card-body">
-              <h5 className="card-title">To-Do List</h5>
-              <p className="card-text">
-                Stay organized and keep track of all your tasks.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 );
