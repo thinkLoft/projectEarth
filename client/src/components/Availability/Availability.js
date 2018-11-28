@@ -40,11 +40,6 @@ class AvailabilityPage extends React.Component {
       {
         title: 'ajhfbusbfubfb',
         start: '2018-11-13T07:00:00'
-      },
-      {
-        title: 'Click for Google',
-        url: 'http://google.com/',
-        start: '2018-11-28'
       }
     ]
   };
