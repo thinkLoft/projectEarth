@@ -14,11 +14,14 @@ export default class freeForm extends React.Component {
     date: new Date(),
     startTime: "",
     endTime: "",
-    startend: []
+    startend: [],
+    title: "",
+    task: "",
+    deadline: ""
   };
-  componentDidMount() {
-    this.todaysAvailabilities();
-  }
+  // componentDidMount() {
+  //   this.todaysAvailabilities();
+  // }
   // For all other inputs
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -29,7 +32,7 @@ export default class freeForm extends React.Component {
   // for Calendar
   onChange = date => {
     this.setState({ date });
-    this.todaysAvailabilities();
+    // this.todaysAvailabilities();
   };
   saveUser = (a, b, c, d) => {
     API.newUser({
@@ -38,9 +41,9 @@ export default class freeForm extends React.Component {
       startTime: c,
       endTime: d
     })
-      .then(() => {
-        this.todaysAvailabilities();
-      })
+      // .then(() => {
+      //   this.todaysAvailabilities();
+      // })
       .catch(error => {
         if (error) {
           console.log(`API new USER error line 37 on form js: ${error}`);
@@ -48,39 +51,39 @@ export default class freeForm extends React.Component {
       });
   };
   //see all availabilities based on today
-  todaysAvailabilities = () => {
-    let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
-    console.log("hello from todays availabilitie fn on line 46");
-    API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
-      .then(res => {
-        //map over data and console log start and endtimes
-        this.setState({ startend: res.data });
-        console.log(`thisstartEnd: ${this.state.startend}`);
-      })
-      .catch(error => {
-        if (error) {
-          console.log(error);
-        }
-      });
-  };
-  //test
-  allMyAvailabilties = gamma => {
-    API.findOne({ userEmail: gamma })
-      .then(res => {
-        res.data.map(allData => {
-          console.log(
-            "Date: " + allData.date,
-            "start time: " + allData.startTime,
-            "end time: " + allData.endTime
-          );
-        });
-      })
-      .catch(error => {
-        if (error) {
-          console.log(error);
-        }
-      });
-  };
+  // todaysAvailabilities = () => {
+  //   let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
+  //   console.log("hello from todays availabilitie fn on line 46");
+  //   API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
+  //     .then(res => {
+  //       //map over data and console log start and endtimes
+  //       this.setState({ startend: res.data });
+  //       console.log(`thisstartEnd: ${this.state.startend}`);
+  //     })
+  //     .catch(error => {
+  //       if (error) {
+  //         console.log(error);
+  //       }
+  //     });
+  // };
+  // //test
+  // allMyAvailabilties = gamma => {
+  //   API.findOne({ userEmail: gamma })
+  //     .then(res => {
+  //       res.data.map(allData => {
+  //         console.log(
+  //           "Date: " + allData.date,
+  //           "start time: " + allData.startTime,
+  //           "end time: " + allData.endTime
+  //         );
+  //       });
+  //     })
+  //     .catch(error => {
+  //       if (error) {
+  //         console.log(error);
+  //       }
+  //     });
+  // };
 
   //see all todays availabilities
   handletodayAvailabilities = event => {
@@ -143,7 +146,6 @@ export default class freeForm extends React.Component {
         <div className="row">
           <div className="col-6">
             <Form>
-
               <FormGroup>
                 <div className="row">
                   <div className="col-lg-8 mycalendar">
@@ -187,7 +189,7 @@ export default class freeForm extends React.Component {
                       onClick={this.handleFormSubmit}
                     >
                       Ad Freetime
-                </Button>
+                    </Button>
                   </div>
                   {/* <div className="col-md-4 seeingAllEvents">
                     <div className="buttonEvents">
@@ -221,10 +223,13 @@ export default class freeForm extends React.Component {
                   <div className="col-lg-8 title">
                     <h2>Add a Task</h2>
                     <Label for="title">Title</Label>
-                    <Input id="task-title"
-                    />
+                    <Input id="task-title" />
                     <label for="exampleFormControlTextarea1">Details</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                    />
                     <Label for="date">Date</Label>
                     <Input
                       id="todayDate"
@@ -250,11 +255,7 @@ export default class freeForm extends React.Component {
                       onChange={this.handleInputChange}
                     />
 
-                    <Button
-                      className="submit"
-                    >
-                      Add Task
-                </Button>
+                    <Button className="submit">Add Task</Button>
                   </div>
                 </div>
               </FormGroup>
@@ -262,7 +263,6 @@ export default class freeForm extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
