@@ -9,7 +9,6 @@ import SignInPage from './signin/';
 import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
-import ToDoPage from './toDo/';
 import { firebase } from '../firebase';
 import Availability from './Availability';
 import axios from 'axios';
@@ -76,13 +75,6 @@ class App extends Component {
           />
           <Route exact path={routes.AVAILABILITY} component={Availability} />
 
-          <Route
-            exact
-            path={routes.TODO}
-            render={props => (
-              <ToDoPage authUser={this.state.authUser} {...props} />
-            )}
-          />
           <Route exact path={routes.LOGIN} component={Login} />
         </div>
       </Router>
