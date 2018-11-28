@@ -1,13 +1,14 @@
 //import for CRUD methods
-import axios from "axios";
+import axios from 'axios';
 //export for usuage
 export default {
   //create a new user with userEmail, startDate, endDate
   newUser: function(data) {
-    return axios.post("/api/personal/mycalendar", data);
+    return axios.post('/api/personal/mycalendar', data);
   },
   //find all
   findEverything: function() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return axios.get("/api/personal/mycalendar");
   },
@@ -48,6 +49,25 @@ export default {
       }
     });
 >>>>>>> aeb9254498fa6e63b5f1211043bebfa3c4b7086a
+=======
+    return axios.get('/api/personal/mycalendar');
+  },
+  //update one startdate endate
+  updateDate: function(id, data) {
+    return axios.put('/api/personal/mycalendar/update' + id, data);
+  },
+  //Create a new task in the db
+  newTask: function(data) {
+    return axios.post('/api/personal/todos', data);
+  },
+  //Find all of the to dos in the database
+  findAllToDos: function() {
+    return axios.get('/api/personal/todos');
+  },
+  //Update the to dos in the database
+  updateToDos: function(id, data) {
+    return axios.put('/api/personal/todos/update' + id, data);
+>>>>>>> 178d25c88765038116955f9558b485c5ca715af1
   }
 };
 

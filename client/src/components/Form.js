@@ -1,11 +1,26 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Form.css';
+import Calendar from 'react-calendar';
+import API from '../utils/api';
+import moment from 'moment';
+=======
+>>>>>>> 178d25c88765038116955f9558b485c5ca715af1
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Form.css";
 import { Calendar, TileContent } from "react-calendar";
 import API from "../utils/api";
+<<<<<<< HEAD
 import moment from "moment";
 import TodayAvails from "./formtodaylist/formtodaylist.js";
 import List from "./formtodaylist/list.js";
+=======
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
+>>>>>>> 178d25c88765038116955f9558b485c5ca715af1
 // import API from "../utils/api";
 
 export default class freeForm extends React.Component {
@@ -111,11 +126,25 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
+<<<<<<< HEAD
       this.state.email !== "undefined" &&
+=======
+<<<<<<< HEAD
+      this.state.email !== 'undefined' &&
+>>>>>>> 178d25c88765038116955f9558b485c5ca715af1
       this.state.date !== null
     ) {
       console.log("hello from see all");
       this.allMyAvailabilties(this.state.email);
+<<<<<<< HEAD
+=======
+=======
+      this.state.email != "undefined" &&
+      this.state.date !== null
+    ) {
+      console.log("hello");
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
+>>>>>>> 178d25c88765038116955f9558b485c5ca715af1
     }
   };
   handleFormSubmit = event => {
@@ -135,6 +164,13 @@ export default class freeForm extends React.Component {
       }
       console.log("after saving user @line 74 of form js");
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    console.log("hello from the submit");
+>>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
+>>>>>>> 178d25c88765038116955f9558b485c5ca715af1
   };
 
   render() {
