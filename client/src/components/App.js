@@ -10,7 +10,7 @@ import PasswordForgetPage from "./PasswordForget";
 import HomePage from "./Home";
 import AccountPage from "./Account";
 import ToDoPage from "./toDo/";
-import firebase from "../firebase";
+import { firebase } from "../firebase";
 import Availability from "./Availability";
 
 import * as routes from "../constants/routes";

@@ -92,7 +92,7 @@ export default class freeForm extends React.Component {
     ) {
       console.log("hello from today");
       let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
-      let todaysEmail = this.state.email;
+
       if (todaysDate !== null) {
         //this.todaysAvailabilities(todaysEmail, todaysDate);
         console.log("test");
@@ -132,10 +132,6 @@ export default class freeForm extends React.Component {
   };
 
   render() {
-    let object = {
-      one: { date: this.state.date, startTime: 1230, endTime: 1311 },
-      two: { date: this.state.date, startTime: 1420, endTime: 1540 }
-    };
     return (
       <div className="container calendar-form">
         <Form>
