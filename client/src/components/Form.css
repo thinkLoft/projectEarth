@@ -16,8 +16,15 @@
 #myEmail,
 #todayDate,
 #startTime,
-#endTime {
+#endTime,
+#task-title,
+#exampleFormControlTextarea1 {
   width: 300px;
+}
+
+h2{
+  width: 300px;
+  margin-top: 10px;
 }
 .seeingAllEvents {
   margin-left: 50px;

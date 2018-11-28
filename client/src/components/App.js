@@ -72,13 +72,6 @@ class App extends Component {
             )}
           />
 
-          <Route
-            exact
-            path={routes.TODO}
-            render={props => (
-              <ToDoPage authUser={this.state.authUser} {...props} />
-            )}
-          />
           <Route exact path={routes.LOGIN} component={Login} />
         </div>
       </Router>

@@ -134,82 +134,135 @@ export default class freeForm extends React.Component {
   render() {
     return (
       <div className="container calendar-form">
-        <Form>
-          <FormGroup>
-            <div className="row">
-              <div className="col-lg-8 mycalendar">
-                <Calendar
-                  name="date"
-                  onChange={this.onChange}
-                  value={this.state.date}
-                />
+        {/* add freetime form */}
+        <Calendar
+          name="date"
+          onChange={this.onChange}
+          value={this.state.date}
+        />
+        <div className="row">
+          <div className="col-6">
+            <Form>
 
-                <Label for="email">Email</Label>
-                <Input
-                  id="myEmail"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  name="email"
-                  placeholder="email@example.com"
-                />
-                <Label for="date">Date</Label>
-                <Input
-                  id="todayDate"
-                  type="text"
-                  placeholder={this.state.date}
-                  name="date"
-                />
-                <Label for="startTime">Start</Label>
-                <Input
-                  type="time"
-                  name="startTime"
-                  id="startTime"
-                  onChange={this.handleInputChange}
-                  value={this.state.startTime}
-                  placeholder="00:00"
-                />
-                <Label for="endTime">End</Label>
-                <Input
-                  type="time"
-                  name="endTime"
-                  id="endTime"
-                  placeholder="00:00"
-                  onChange={this.handleInputChange}
-                />
+              <FormGroup>
+                <div className="row">
+                  <div className="col-lg-8 mycalendar">
+                    <h2>Add Free Time</h2>
+                    <Label for="email">Email</Label>
+                    <Input
+                      id="myEmail"
+                      value={this.state.email}
+                      onChange={this.handleInputChange}
+                      name="email"
+                      placeholder="email@example.com"
+                    />
+                    <Label for="date">Date</Label>
+                    <Input
+                      id="todayDate"
+                      type="text"
+                      placeholder={this.state.date}
+                      name="date"
+                    />
+                    <Label for="startTime">Start</Label>
+                    <Input
+                      type="time"
+                      name="startTime"
+                      id="startTime"
+                      onChange={this.handleInputChange}
+                      value={this.state.startTime}
+                      placeholder="00:00"
+                    />
+                    <Label for="endTime">End</Label>
+                    <Input
+                      type="time"
+                      name="endTime"
+                      id="endTime"
+                      placeholder="00:00"
+                      onChange={this.handleInputChange}
+                    />
 
-                <Button
-                  className="submit"
-                  disabled={!(this.state.startTime && this.state.endTime)}
-                  onClick={this.handleFormSubmit}
-                >
-                  Ad Freetime
+                    <Button
+                      className="submit"
+                      disabled={!(this.state.startTime && this.state.endTime)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Ad Freetime
                 </Button>
-              </div>
-              <div className="col-md-4 seeingAllEvents">
-                <div className="buttonEvents">
-                  <div>
-                    <List value={this.state.date}>
-                      {this.state.startend.map(startending => {
-                        return (
-                          <TodayAvails
-                            key={startending._id}
-                            newDate={startending.date}
-                            startTime={startending.startTime}
-                            endTime={startending.endTime}
-                          />
-                        );
-                      })}
-                    </List>
                   </div>
-                  {/*<Button id="SeeAll" onClick={this.handleSeeAllAvailabilities}>
-                    See All
-                  </Button>*/}
+                  {/* <div className="col-md-4 seeingAllEvents">
+                    <div className="buttonEvents">
+                      <div>
+                        <List value={this.state.date}>
+                          {this.state.startend.map(startending => {
+                            return (
+                              <TodayAvails
+                                key={startending._id}
+                                newDate={startending.date}
+                                startTime={startending.startTime}
+                                endTime={startending.endTime}
+                              />
+                            );
+                          })}
+                        </List>
+                      </div>
+
+                    </div> */}
+                  {/* </div> */}
                 </div>
-              </div>
-            </div>
-          </FormGroup>
-        </Form>
+              </FormGroup>
+            </Form>
+          </div>
+
+          <div className="col-6">
+            {/* add task form */}
+            <Form>
+              <FormGroup>
+                <div className="row addTask">
+                  <div className="col-lg-8 title">
+                    <h2>Add a Task</h2>
+                    <Label for="title">Title</Label>
+                    <Input id="task-title"
+                    />
+                    <label for="exampleFormControlTextarea1">Details</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <Label for="date">Date</Label>
+                    <Input
+                      id="todayDate"
+                      type="text"
+                      placeholder={this.state.date}
+                      name="date"
+                    />
+                    <Label for="startTime">Start</Label>
+                    <Input
+                      type="time"
+                      name="startTime"
+                      id="startTime"
+                      onChange={this.handleInputChange}
+                      value={this.state.startTime}
+                      placeholder="00:00"
+                    />
+                    <Label for="endTime">End</Label>
+                    <Input
+                      type="time"
+                      name="endTime"
+                      id="endTime"
+                      placeholder="00:00"
+                      onChange={this.handleInputChange}
+                    />
+
+                    <Button
+                      className="submit"
+                    >
+                      Add Task
+                </Button>
+                  </div>
+                </div>
+              </FormGroup>
+            </Form>
+          </div>
+        </div>
       </div>
+
     );
   }
 }
