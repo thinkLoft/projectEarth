@@ -1,10 +1,10 @@
 import React from 'react';
 import './Account.css';
-import UserCalendar from '../UserCalendar';
+//import UserCalendar from '../UserCalendar';
 import Form from '../Form';
 import { firebase } from '../../firebase';
 //importing API calls
-import API from '../../utils/api.js';
+//import API from '../../utils/api.js';
 
 let authUser;
 let authUid = '';
@@ -13,7 +13,7 @@ firebase.auth.onAuthStateChanged(user => {
     authUser = user.email;
     authUid = user.uid;
     //console.log(user);
-    console.log(authUser, authUid);
+    //console.log(authUser, authUid);
     //find user by uid, if user does not exisit make a user
     /* API.findUid(authUid).then(data => {
       console.log('hit api authuid @ account js line 19');

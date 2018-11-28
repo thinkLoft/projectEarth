@@ -47,13 +47,7 @@ class App extends Component {
           />
           <hr />
           <Route exact path={routes.LANDING} component={LandingPage} />
-          <Route
-            exact
-            path={routes.SIGN_UP}
-            component={SignUpPage}
-          //saveNew={this.saveUser}
-          //clog={this.showUser()}
-          />
+          <Route exact path={routes.SIGN_UP} component={SignUpPage} />
           <Route exact path={routes.SIGN_IN} component={SignInPage} />
           <Route
             exact
@@ -74,8 +68,13 @@ class App extends Component {
               <AccountPage authUser={this.state.authUser} {...props} />
             )}
           />
-          <Route exact path={routes.AVAILABILITY} component={Availability} />
-
+          <Route
+            exact
+            path={routes.AVAILABILITY}
+            render={props => (
+              <Availability authUser={this.state.authUser} {...props} />
+            )}
+          />
           <Route
             exact
             path={routes.TODO}
