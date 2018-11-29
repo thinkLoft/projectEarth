@@ -226,36 +226,31 @@ export default class freeForm extends React.Component {
                   <div className="col-lg-8 title">
                     <h2>Add a Task</h2>
                     <Label for="title">Title</Label>
-                    <Input id="task-title" />
-                    <label for="exampleFormControlTextarea1">Details</label>
-                    <textarea
-                      class="form-control"
-                      id="exampleFormControlTextarea1"
-                      rows="3"
-                    />
-                    <Label for="date">Date</Label>
                     <Input
-                      id="todayDate"
+                      id="title"
+                      value={this.state.title}
+                      onChange={this.handleInputChange}
+                      name="title"
                       type="text"
-                      placeholder={this.state.date}
-                      name="date"
+                      placeholder="Title of your task"
                     />
-                    <Label for="startTime">Start</Label>
-                    <Input
-                      type="time"
-                      name="startTime"
-                      id="startTime"
+                    <Label for="details">Task</Label>
+                    <textarea
+                      id="task-details"
+                      value={this.state.task}
                       onChange={this.handleInputChange}
-                      value={this.state.startTime}
-                      placeholder="00:00"
+                      name="task"
+                      placeholder="Enter a description of your task here"
+                      type="text"
                     />
-                    <Label for="endTime">End</Label>
+                    <Label for="deadline">Deadline</Label>
                     <Input
-                      type="time"
-                      name="endTime"
-                      id="endTime"
-                      placeholder="00:00"
+                      type="date"
+                      id="deadline"
+                      name="deadline"
                       onChange={this.handleInputChange}
+                      value={this.state.deadline}
+                      placeholder="00:00"
                     />
 
                     <Button className="submit">Add Task</Button>
