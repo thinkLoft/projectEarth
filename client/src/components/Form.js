@@ -191,7 +191,7 @@ export default class freeForm extends React.Component {
                       disabled={!(this.state.startTime && this.state.endTime)}
                       onClick={this.handleFormSubmit}
                     >
-                      Ad Freetime
+                      Add Freetime
                     </Button>
                   </div>
                   {/* <div className="col-md-4 seeingAllEvents">
@@ -234,9 +234,9 @@ export default class freeForm extends React.Component {
                       type="text"
                       placeholder="Title of your task"
                     />
-                    <Label for="details">Task</Label>
+                    <Label for="task">Task</Label>
                     <textarea
-                      id="task-details"
+                      id="task"
                       value={this.state.task}
                       onChange={this.handleInputChange}
                       name="task"
