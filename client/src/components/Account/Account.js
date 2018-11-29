@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './Account.css';
 //import UserCalendar from '../UserCalendar';
@@ -39,6 +40,11 @@ firebase.auth.onAuthStateChanged(user => {
     console.log('user login status: There is no logged in user');
   }
 });
+=======
+import React from "react";
+import "./Account.css";
+import Form from "../Form";
+>>>>>>> master
 
 //sending props user email and uid
 const AccountPage = ({ authUser }) => (

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //import react from react
 import React from 'react';
 import 'fullcalendar/dist/fullcalendar.css';
@@ -61,5 +62,25 @@ class AvailabilityPage extends React.Component {
     );
   }
 }
+=======
+import React from "react";
+import "fullcalendar/dist/fullcalendar.css";
+
+import "fullcalendar/dist/fullcalendar.js";
+// import "fullcalendar/dist/fullcalendar.print.min.css";
+import "./Availability.css";
+
+import FullCalendar from "fullcalendar-reactwrapper";
+
+import "moment/min/moment.min.js";
+
+const AvailabilityPage = () => (
+  <div id="seeTime" className="container">
+    <div className="container detailedCalendar">
+      <FullCalendar />
+    </div>
+  </div>
+);
+>>>>>>> master
 
 export default AvailabilityPage;
