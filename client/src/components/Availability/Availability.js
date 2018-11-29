@@ -30,11 +30,11 @@ class AvailabilityPage extends React.Component {
   getTodaysAvailabilities = () => {
     API.findOne({ userEmail: this.state.email })
       .then(result => {
-        console.log(result);
         this.setState({ fullarray: result.data });
         this.state.fullarray.map(freetimes => {
-          this.setState({ start: freetimes.date, end: freetimes.date });
+          this.setState({ start: freetimes.startTime, end: freetimes.endTime });
         });
+        console.log(this.state.start, this.state.end);
       })
       .catch(error => {
         if (error) {

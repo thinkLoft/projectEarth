@@ -2,11 +2,13 @@ import React from 'react';
 import './formtodaylist.css';
 import API from '../../utils/api';
 const TodayAvails = props => {
-  console.log(props);
+  let nowStart = props.startTime.substring(11, 16);
+  let nowEnd = props.endTime.substring(11, 16);
+  console.log('from formlist today');
   return (
     <div>
       <p>
-        {props.startTime} to {props.endTime}
+        {nowStart} to {nowEnd}
       </p>
     </div>
   );

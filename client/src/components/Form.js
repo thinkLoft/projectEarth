@@ -122,13 +122,21 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
-      console.log('saving new user line 67 on form js');
+      let momentFormattedDate = moment(this.state.date).format();
+      let indexOfString = momentFormattedDate.indexOf('T');
+      let newIndexOfStartTime =
+        momentFormattedDate.substring(0, 11) + this.state.startTime + ':00';
+      let newIndexOfEndTime =
+        momentFormattedDate.substring(0, 11) + this.state.endTime + ':00';
+      console.log(
+        `newStart: ${newIndexOfStartTime} and newend: ${newIndexOfEndTime}`
+      );
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
           newDate,
-          this.state.startTime,
-          this.state.endTime
+          newIndexOfStartTime,
+          newIndexOfEndTime
         );
       } else {
         console.log('The end Time must be after the start time');
