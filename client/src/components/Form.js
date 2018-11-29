@@ -1,19 +1,19 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import "./Form.css";
-import Calendar from "react-calendar";
-import API from "../utils/api";
-import moment from "moment";
-import TodayAvails from "./formtodaylist/formtodaylist.js";
-import List from "./formtodaylist/list.js";
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Form.css';
+import Calendar from 'react-calendar';
+import API from '../utils/api';
+import moment from 'moment';
+import TodayAvails from './formtodaylist/formtodaylist.js';
+import List from './formtodaylist/list.js';
 
 export default class freeForm extends React.Component {
   state = {
     email: this.props.email,
     // uid: this.props.uid,
     date: new Date(),
-    startTime: "",
-    endTime: "",
+    startTime: '',
+    endTime: '',
     startend: []
   };
   componentDidMount() {
@@ -38,11 +38,7 @@ export default class freeForm extends React.Component {
       startTime: c,
       endTime: d
     })
-<<<<<<< HEAD
-      .then(success => {
-=======
       .then(() => {
->>>>>>> master
         this.todaysAvailabilities();
       })
       .catch(error => {
@@ -53,12 +49,8 @@ export default class freeForm extends React.Component {
   };
   //see all availabilities based on today
   todaysAvailabilities = () => {
-<<<<<<< HEAD
     let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
-=======
-    let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
-    console.log("hello from todays availabilitie fn on line 46");
->>>>>>> master
+    console.log('hello from todays availabilitie fn on line 46');
     API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
       .then(res => {
         //map over data and console log start and endtimes
@@ -76,9 +68,9 @@ export default class freeForm extends React.Component {
       .then(res => {
         res.data.map(allData => {
           console.log(
-            "Date: " + allData.date,
-            "start time: " + allData.startTime,
-            "end time: " + allData.endTime
+            'Date: ' + allData.date,
+            'start time: ' + allData.startTime,
+            'end time: ' + allData.endTime
           );
         });
       })
@@ -97,10 +89,6 @@ export default class freeForm extends React.Component {
       this.state.email !== "undefined" &&
       this.state.date !== null
     ) {
-<<<<<<< HEAD
-      let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
-      let todaysEmail = this.state.email;
-=======
       console.log("hello from today");
       let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
 
@@ -109,7 +97,6 @@ export default class freeForm extends React.Component {
         console.log("test");
         //this.allMyAvailabilties(this.state.email);
       }
->>>>>>> master
     } else {
       console.log("state not defined or null");
       return;
@@ -120,20 +107,16 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
-      this.state.email !== "undefined" &&
+      this.state.email !== 'undefined' &&
       this.state.date !== null
     ) {
-<<<<<<< HEAD
-=======
-      console.log("hello from see all");
->>>>>>> master
+      console.log('hello from see all');
       this.allMyAvailabilties(this.state.email);
     }
   };
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-<<<<<<< HEAD
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
       let momentFormattedDate = moment(this.state.date).format();
       let indexOfString = momentFormattedDate.indexOf('T');
@@ -141,9 +124,6 @@ export default class freeForm extends React.Component {
         momentFormattedDate.substring(0, 11) + this.state.startTime + ':00';
       let newIndexOfEndTime =
         momentFormattedDate.substring(0, 11) + this.state.endTime + ':00';
-=======
-      let newDate = moment(this.state.date).format("YYYY/MM/DD");
->>>>>>> master
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
@@ -168,7 +148,6 @@ export default class freeForm extends React.Component {
         <div className="row">
           <div className="col-6">
             <Form>
-
               <FormGroup>
                 <div className="row">
                   <div className="col-lg-8 mycalendar">
@@ -212,7 +191,7 @@ export default class freeForm extends React.Component {
                       onClick={this.handleFormSubmit}
                     >
                       Ad Freetime
-                </Button>
+                    </Button>
                   </div>
                   {/* <div className="col-md-4 seeingAllEvents">
                     <div className="buttonEvents">
@@ -246,10 +225,13 @@ export default class freeForm extends React.Component {
                   <div className="col-lg-8 title">
                     <h2>Add a Task</h2>
                     <Label for="title">Title</Label>
-                    <Input id="task-title"
-                    />
+                    <Input id="task-title" />
                     <label for="exampleFormControlTextarea1">Details</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                    />
                     <Label for="date">Date</Label>
                     <Input
                       id="todayDate"
@@ -275,11 +257,7 @@ export default class freeForm extends React.Component {
                       onChange={this.handleInputChange}
                     />
 
-                    <Button
-                      className="submit"
-                    >
-                      Add Task
-                </Button>
+                    <Button className="submit">Add Task</Button>
                   </div>
                 </div>
               </FormGroup>
@@ -287,7 +265,6 @@ export default class freeForm extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
