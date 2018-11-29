@@ -33,8 +33,8 @@ class AvailabilityPage extends React.Component {
         this.setState({ fullarray: result.data });
         this.state.fullarray.map(freetimes => {
           this.setState({ start: freetimes.startTime, end: freetimes.endTime });
+          console.log(`start: ${this.state.start}`);
         });
-        console.log(this.state.start, this.state.end);
       })
       .catch(error => {
         if (error) {
