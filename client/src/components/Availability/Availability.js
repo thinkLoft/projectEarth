@@ -11,39 +11,37 @@ import axios from 'axios';
 import API from '../../utils/api.js';
 class AvailabilityPage extends React.Component {
   state = {
+    email: this.props.authUser.email,
+    fullarray: [],
     events: [
       {
-        title: 'Test 1',
-        start: '2018-11-27',
-        end: '2018-11-28'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2018-11-05T16:00:00'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2018-11-16T16:00:00'
-      },
-      {
-        title: 'Conference',
-        start: '2018-11-11',
-        end: '2018-11-13'
-      },
-      {
-        title: 'Meeting',
-        start: '2018-11-12T10:30:00',
-        end: '2018-11-12T12:30:00'
-      },
-      {
-        title: 'ajhfbusbfubfb',
-        start: '2018-11-13T07:00:00'
+        title: [],
+        start: [],
+        end: []
       }
     ]
   };
-
+  componentDidMount() {
+    this.getTodaysAvailabilities();
+  }
+  /*changing = () => {
+    this.setState({ title: 'aijfnf', start: '2018-11-07', end: '2018-11-08' });
+  };*/
+  getTodaysAvailabilities = () => {
+    API.findOne({ userEmail: this.state.email })
+      .then(result => {
+        console.log(result);
+        this.setState({ fullarray: result.data });
+        this.state.fullarray.map(freetimes => {
+          this.setState({ start: freetimes.date, end: freetimes.date });
+        });
+      })
+      .catch(error => {
+        if (error) {
+          console.log(error);
+        }
+      });
+  };
   render() {
     return (
       <div id="fullCalendar-Component">
