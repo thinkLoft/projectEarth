@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import Navigation from "./Navigation";
-import Login from "./login/";
-import LandingPage from "./Landing";
-import SignUpPage from "./signup/";
-import SignInPage from "./signin/";
-import PasswordForgetPage from "./PasswordForget";
-import HomePage from "./Home";
-import AccountPage from "./Account";
-import ToDoPage from "./toDo/";
-import { firebase } from "../firebase";
-import Availability from "./Availability";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './App.css';
+import Navigation from './Navigation';
+import Login from './login/';
+import LandingPage from './Landing';
+import SignUpPage from './signup/';
+import SignInPage from './signin/';
+import PasswordForgetPage from './PasswordForget';
+import HomePage from './Home';
+import AccountPage from './Account';
+import ToDoPage from './toDo/';
+import { firebase } from '../firebase';
+import Availability from './Availability';
 
-import * as routes from "../constants/routes";
+import * as routes from '../constants/routes';
 
 class App extends Component {
   constructor(props) {
@@ -64,7 +64,6 @@ class App extends Component {
               <AccountPage authUser={this.state.authUser} {...props} />
             )}
           />
-<<<<<<< HEAD
           <Route
             exact
             path={routes.AVAILABILITY}
@@ -72,8 +71,6 @@ class App extends Component {
               <Availability authUser={this.state.authUser} {...props} />
             )}
           />
-=======
->>>>>>> master
           <Route
             exact
             path={routes.AVAILABILITY}
