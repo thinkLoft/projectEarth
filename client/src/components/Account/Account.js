@@ -1,10 +1,7 @@
 import React from 'react';
 import './Account.css';
 import Form from '../Form';
-<<<<<<< HEAD
 import ToDoForm from '../toDoForm';
-=======
->>>>>>> master
 
 //sending props user email and uid
 const AccountPage = ({ authUser }) => (
