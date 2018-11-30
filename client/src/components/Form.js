@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
@@ -8,21 +9,28 @@ import moment from 'moment';
 import TodayAvails from './formtodaylist/formtodaylist.js';
 import List from './formtodaylist/list.js';
 =======
+=======
+>>>>>>> 90095f324edb66c20edc8f21071618176d290d62
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Form.css";
 import Calendar from "react-calendar";
 import API from "../utils/api";
 import moment from "moment";
+<<<<<<< HEAD
 >>>>>>> master
+=======
+import TodayAvails from "./formtodaylist/formtodaylist.js";
+import List from "./formtodaylist/list.js";
+>>>>>>> 90095f324edb66c20edc8f21071618176d290d62
 
 export default class freeForm extends React.Component {
   state = {
     email: this.props.email,
     // uid: this.props.uid,
     date: new Date(),
-    startTime: '',
-    endTime: '',
+    startTime: "",
+    endTime: "",
     startend: []
   };
   componentDidMount() {
@@ -58,8 +66,8 @@ export default class freeForm extends React.Component {
   };
   //see all availabilities based on today
   todaysAvailabilities = () => {
-    let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
-    console.log('hello from todays availabilitie fn on line 46');
+    let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
+    console.log("hello from todays availabilitie fn on line 46");
     API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
       .then(res => {
         //map over data and console log start and endtimes
@@ -77,9 +85,9 @@ export default class freeForm extends React.Component {
       .then(res => {
         res.data.map(allData => {
           console.log(
-            'Date: ' + allData.date,
-            'start time: ' + allData.startTime,
-            'end time: ' + allData.endTime
+            "Date: " + allData.date,
+            "start time: " + allData.startTime,
+            "end time: " + allData.endTime
           );
         });
       })
@@ -116,23 +124,23 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
-      this.state.email !== 'undefined' &&
+      this.state.email !== "undefined" &&
       this.state.date !== null
     ) {
-      console.log('hello from see all');
+      console.log("hello from see all");
       this.allMyAvailabilties(this.state.email);
     }
   };
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-      let newDate = moment(this.state.date).format('YYYY/MM/DD');
+      let newDate = moment(this.state.date).format("YYYY/MM/DD");
       let momentFormattedDate = moment(this.state.date).format();
-      let indexOfString = momentFormattedDate.indexOf('T');
+      let indexOfString = momentFormattedDate.indexOf("T");
       let newIndexOfStartTime =
-        momentFormattedDate.substring(0, 11) + this.state.startTime + ':00';
+        momentFormattedDate.substring(0, 11) + this.state.startTime + ":00";
       let newIndexOfEndTime =
-        momentFormattedDate.substring(0, 11) + this.state.endTime + ':00';
+        momentFormattedDate.substring(0, 11) + this.state.endTime + ":00";
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
@@ -235,9 +243,9 @@ export default class freeForm extends React.Component {
                     <h2>Add a Task</h2>
                     <Label for="title">Title</Label>
                     <Input id="task-title" />
-                    <label for="exampleFormControlTextarea1">Details</label>
+                    <Label for="exampleFormControlTextarea1">Details</Label>
                     <textarea
-                      class="form-control"
+                      className="form-control"
                       id="exampleFormControlTextarea1"
                       rows="3"
                     />
