@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
-import 'moment/locale/nb';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import API from '../../utils/api.js';
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
+import "moment/locale/nb";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import API from "../../utils/api.js";
 
-moment.locale('en-GB');
+moment.locale("en-ca");
 const localizer = BigCalendar.momentLocalizer(moment);
 
 class AvailabilityPage extends Component {
@@ -46,7 +46,7 @@ class AvailabilityPage extends Component {
     return (
       <div className="myfreetime-calendar">
         <header className="calendar-header">
-          <h1 className="myfreetime-h1">React Calendar</h1>
+          <h1 className="myfreetime-h1">My Calendar</h1>
         </header>
         <div style={{ height: 700 }}>
           <BigCalendar
@@ -54,7 +54,7 @@ class AvailabilityPage extends Component {
             events={cal_events}
             step={30}
             defaultView="month"
-            views={['month', 'week', 'day']}
+            views={["month", "week", "day"]}
             defaultDate={new Date()}
             startAccessor="startTime"
             endAccessor="endTime"
