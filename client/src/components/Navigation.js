@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import SignOutButton from './SignOut';
-import * as routes from '../constants/routes';
-import './Navigation.css';
-import icon from './images/icon.jpg';
+import SignOutButton from "./SignOut";
+import * as routes from "../constants/routes";
+import "./Navigation.css";
+import icon from "./images/icon.jpg";
 
 const Navigation = ({ authUser }) => (
   <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
@@ -33,10 +33,10 @@ const NavigationAuth = () => (
           </Link>
         </li>
         <li className="nav-item">
-          <Link to={routes.ACCOUNT}>Account</Link>
+          <Link to={routes.ACCOUNT}>Add Task</Link>
         </li>
         <li className="nav-item">
-          <Link to={routes.AVAILABILITY}>Availability</Link>
+          <Link to={routes.AVAILABILITY}>My Calendar</Link>
         </li>
 
         <SignOutButton />
@@ -64,7 +64,7 @@ const NavigationNonAuth = () => (
       <ul className="navbar-nav unauthorized">
         <li className="nav-item active">
           <Link to={routes.LANDING}>
-            Landing<span className="sr-only">(current)</span>
+            Home<span className="sr-only">(current)</span>
           </Link>
         </li>
         <li className="nav-item">

@@ -22,11 +22,14 @@
   width: 300px;
 }
 
+<<<<<<< HEAD
 #task {
   height: 250px;
   width: 300px;
 }
 
+=======
+>>>>>>> master
 h2 {
   width: 300px;
   margin-top: 10px;
@@ -40,4 +43,9 @@ h2 {
 }
 #SeeAll {
   margin-left: 100px;
+}
+
+#myEmail,
+#todayDate {
+  display: none;
 }

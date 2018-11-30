@@ -11,7 +11,6 @@ import HomePage from "./Home";
 import AccountPage from "./Account";
 import { firebase } from "../firebase";
 import Availability from "./Availability";
-
 import * as routes from "../constants/routes";
 
 class App extends Component {
