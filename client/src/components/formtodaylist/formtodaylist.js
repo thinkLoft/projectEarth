@@ -1,11 +1,13 @@
-import React from "react";
-import "./formtodaylist.css";
+import React from 'react';
+import './formtodaylist.css';
 
 const TodayAvails = props => {
+  let nowStart = props.startTime.substring(11, 16);
+  let nowEnd = props.endTime.substring(11, 16);
   return (
     <div>
       <p>
-        {props.startTime} to {props.endTime}
+        {nowStart} to {nowEnd}
       </p>
     </div>
   );

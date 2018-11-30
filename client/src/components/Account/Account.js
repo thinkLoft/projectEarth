@@ -1,6 +1,6 @@
-import React from "react";
-import "./Account.css";
-import Form from "../Form";
+import React from 'react';
+import './Account.css';
+import Form from '../Form';
 
 //sending props user email and uid
 const AccountPage = ({ authUser }) => (
