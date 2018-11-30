@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
@@ -10,27 +9,9 @@ import SignInPage from './signin/';
 import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
-//import ToDoPage from './toDo/todo.js';
 import { firebase } from '../firebase';
 import Availability from './Availability';
-
 import * as routes from '../constants/routes';
-=======
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import Navigation from "./Navigation";
-import Login from "./login/";
-import LandingPage from "./Landing";
-import SignUpPage from "./signup/";
-import SignInPage from "./signin/";
-import PasswordForgetPage from "./PasswordForget";
-import HomePage from "./Home";
-import AccountPage from "./Account";
-import { firebase } from "../firebase";
-import Availability from "./Availability";
-import * as routes from "../constants/routes";
->>>>>>> master
 
 class App extends Component {
   constructor(props) {
