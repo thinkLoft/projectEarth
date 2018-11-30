@@ -140,14 +140,14 @@ export default class freeForm extends React.Component {
           onChange={this.onChange}
           value={this.state.date}
         />
-        <div className="row">
+        <div className="row timeInputs">
           <div className="col-6">
             <Form>
-
               <FormGroup>
                 <div className="row">
                   <div className="col-lg-8 mycalendar">
                     <h2>Add Free Time</h2>
+                    <br></br>
                     <Label for="email">Email</Label>
                     <Input
                       id="myEmail"
@@ -220,6 +220,7 @@ export default class freeForm extends React.Component {
                 <div className="row addTask">
                   <div className="col-lg-8 title">
                     <h2>Add a Task</h2>
+                    <br></br>
                     <Label for="title">Title</Label>
                     <Input id="task-title"
                     />

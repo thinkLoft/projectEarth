@@ -36,3 +36,10 @@ h2{
 #SeeAll {
   margin-left: 100px;
 }
+
+.timeInputs{
+  margin-top: 25px;
+  font-family: 'Merriweather', serif;
+  margin-left: 25%;
+  margin-right:25%;
+}
