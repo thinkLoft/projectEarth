@@ -117,16 +117,12 @@ export default class freeForm extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-<<<<<<< HEAD
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
-=======
-      let newDate = moment(this.state.date).format("YYYY/MM/DD");
       let momentFormattedDate = moment(this.state.date).format();
       let newIndexOfStartTime =
-        momentFormattedDate.substring(0, 11) + this.state.startTime + ":00";
+        momentFormattedDate.substring(0, 11) + this.state.startTime + ':00';
       let newIndexOfEndTime =
-        momentFormattedDate.substring(0, 11) + this.state.endTime + ":00";
->>>>>>> master
+        momentFormattedDate.substring(0, 11) + this.state.endTime + ':00';
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
