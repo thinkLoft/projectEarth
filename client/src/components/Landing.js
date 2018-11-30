@@ -42,9 +42,9 @@ const LandingPage = () => (
               alt="Card cap"
             />
             <div className="card-body">
-              <h5 className="card-title">To-Do List</h5>
+              <h5 className="card-title">Add Tasks</h5>
               <p className="card-text">
-                Stay organized and keep track of all your tasks.
+                Block off time to complete your tasks.
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ const LandingPage = () => (
             <div className="card-body">
               <h5 className="card-title">View your availability</h5>
               <p className="card-text">
-                See the layout of your day in detail as you input your free
+                See the layout of your day in detail as you input your tasks and free
                 time.
               </p>
             </div>
