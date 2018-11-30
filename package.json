@@ -30,6 +30,7 @@
     "moment": "^2.22.2",
     "mongoose": "^5.3.10",
     "path": "^0.12.7",
+    "react-big-calendar": "^0.20.2",
     "validator": "^10.9.0"
   }
 }
