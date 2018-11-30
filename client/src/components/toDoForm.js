@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import "./toDoForm.css";
-import API from "../utils/api";
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './toDoForm.css';
+import API from '../utils/api';
 
 export default class freeForm extends React.Component {
   state = {
@@ -10,11 +10,11 @@ export default class freeForm extends React.Component {
     //date & time of the entry
     date: new Date(),
     //title or name of the task
-    title: "",
+    title: '',
     //task that the user wants to accomplish
-    task: "",
+    task: '',
     //deadline by which the task must be completed
-    deadline: ""
+    deadline: ''
   };
   showEmail = () => {
     console.log(this.state.email);
@@ -28,7 +28,7 @@ export default class freeForm extends React.Component {
   };
 
   saveTask = (a, b, c, d, e) => {
-    API.newTask({
+    API.saveTask({
       email: a,
       date: b,
       title: c,
@@ -37,11 +37,11 @@ export default class freeForm extends React.Component {
     })
       .then(success => {
         console.log(success);
-        console.log("Task successfully added to the db");
+        console.log('Task successfully added to the db');
       })
       .catch(error => {
         if (error) {
-          console.log("Task not successfully added to the db");
+          console.log('Task not successfully added to the db');
         }
       });
   };
@@ -79,7 +79,7 @@ export default class freeForm extends React.Component {
         this.state.deadline
       );
     }
-    console.log("Submitted");
+    console.log('Submitted');
     this.showEmail();
   };
 

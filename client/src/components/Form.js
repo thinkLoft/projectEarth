@@ -1,22 +1,22 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import "./Form.css";
-import Calendar from "react-calendar";
-import API from "../utils/api";
-import moment from "moment";
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Form.css';
+import Calendar from 'react-calendar';
+import API from '../utils/api';
+import moment from 'moment';
 
 export default class freeForm extends React.Component {
   state = {
     email: this.props.email,
     // uid: this.props.uid,
     date: new Date(),
-    startTime: "",
-    endTime: "",
+    startTime: '',
+    endTime: '',
     startend: []
   };
-  componentDidMount() {
+  /*componentDidMount() {
     this.todaysAvailabilities();
-  }
+  }*/
   // For all other inputs
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -46,9 +46,9 @@ export default class freeForm extends React.Component {
       });
   };
   //see all availabilities based on today
-  todaysAvailabilities = () => {
-    let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
-    console.log("hello from todays availabilitie fn on line 46");
+  /* todaysAvailabilities = () => {
+    let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
+    console.log('hello from todays availabilitie fn on line 46');
     API.findTodaysEvent({ userEmail: this.state.email, date: todaysDate })
       .then(res => {
         //map over data and console log start and endtimes
@@ -60,16 +60,16 @@ export default class freeForm extends React.Component {
           console.log(error);
         }
       });
-  };
+  };*/
   //test
   allMyAvailabilties = gamma => {
     API.findOne({ userEmail: gamma })
       .then(res => {
         res.data.map(allData => {
           console.log(
-            "Date: " + allData.date,
-            "start time: " + allData.startTime,
-            "end time: " + allData.endTime
+            'Date: ' + allData.date,
+            'start time: ' + allData.startTime,
+            'end time: ' + allData.endTime
           );
         });
       })
@@ -85,19 +85,19 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
-      this.state.email !== "undefined" &&
+      this.state.email !== 'undefined' &&
       this.state.date !== null
     ) {
-      console.log("hello from today");
-      let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
+      console.log('hello from today');
+      let todaysDate = moment(this.state.date).format('YYYY/MM/DD');
 
       if (todaysDate !== null) {
         //this.todaysAvailabilities(todaysEmail, todaysDate);
-        console.log("test");
+        console.log('test');
         //this.allMyAvailabilties(this.state.email);
       }
     } else {
-      console.log("state not defined or null");
+      console.log('state not defined or null');
       return;
     }
   };
@@ -106,17 +106,17 @@ export default class freeForm extends React.Component {
     event.preventDefault();
     if (
       this.state.email !== null &&
-      this.state.email !== "undefined" &&
+      this.state.email !== 'undefined' &&
       this.state.date !== null
     ) {
-      console.log("hello from see all");
+      console.log('hello from see all');
       this.allMyAvailabilties(this.state.email);
     }
   };
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
-      let newDate = moment(this.state.date).format("YYYY/MM/DD");
+      let newDate = moment(this.state.date).format('YYYY/MM/DD');
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,

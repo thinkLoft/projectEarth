@@ -1,7 +1,7 @@
-const db = require("../models/export.js");
-const moment = require("moment");
-let today = moment().startOf("day");
-let tomorrow = moment(today).endOf("day");
+const db = require('../models/export.js');
+const moment = require('moment');
+let today = moment().startOf('day');
+let tomorrow = moment(today).endOf('day');
 
 //creatung object to export
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
       })
       .catch(error => {
         if (error) {
-          res.status(422).json(error + " error");
+          res.status(422).json(error + ' error');
         }
       });
   },
@@ -83,7 +83,7 @@ module.exports = {
   },
 
   newTask: function(req, res) {
-    db.toDo
+    db.todo
       .create({
         email: req.body.email,
         date: req.body.date,
@@ -123,7 +123,7 @@ module.exports = {
       })
       .catch(error => {
         if (error) {
-          res.status(422).json(error + " error");
+          res.status(422).json(error + ' error');
         }
       });
   },
