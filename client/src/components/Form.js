@@ -145,7 +145,7 @@ export default class freeForm extends React.Component {
                 <div className="row">
                   <div className="col-lg-8 mycalendar">
                     <h2>Add Free Time</h2>
-                    <Label for="email">Email</Label>
+
                     <Input
                       id="myEmail"
                       value={this.state.email}
@@ -153,7 +153,7 @@ export default class freeForm extends React.Component {
                       name="email"
                       placeholder="email@example.com"
                     />
-                    <Label for="date">Date</Label>
+
                     <Input
                       id="todayDate"
                       type="text"
