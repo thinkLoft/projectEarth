@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Form.css';
@@ -6,6 +7,14 @@ import API from '../utils/api';
 import moment from 'moment';
 import TodayAvails from './formtodaylist/formtodaylist.js';
 import List from './formtodaylist/list.js';
+=======
+import React from "react";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "./Form.css";
+import Calendar from "react-calendar";
+import API from "../utils/api";
+import moment from "moment";
+>>>>>>> master
 
 export default class freeForm extends React.Component {
   state = {
@@ -152,7 +161,7 @@ export default class freeForm extends React.Component {
                 <div className="row">
                   <div className="col-lg-8 mycalendar">
                     <h2>Add Free Time</h2>
-                    <Label for="email">Email</Label>
+
                     <Input
                       id="myEmail"
                       value={this.state.email}
@@ -160,7 +169,7 @@ export default class freeForm extends React.Component {
                       name="email"
                       placeholder="email@example.com"
                     />
-                    <Label for="date">Date</Label>
+
                     <Input
                       id="todayDate"
                       type="text"
