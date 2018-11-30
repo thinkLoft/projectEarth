@@ -53,7 +53,6 @@ export default class freeForm extends React.Component {
       .then(res => {
         //map over data and console log start and endtimes
         this.setState({ startend: res.data });
-        console.log(`thisstartEnd: ${this.state.startend}`);
       })
       .catch(error => {
         if (error) {
@@ -71,6 +70,8 @@ export default class freeForm extends React.Component {
             'start time: ' + allData.startTime,
             'end time: ' + allData.endTime
           );
+
+          return true;
         });
       })
       .catch(error => {
@@ -81,7 +82,7 @@ export default class freeForm extends React.Component {
   };
 
   //see all todays availabilities
-  handletodayAvailabilities = event => {
+  /* handletodayAvailabilities = event => {
     event.preventDefault();
     if (
       this.state.email !== null &&
@@ -100,7 +101,7 @@ export default class freeForm extends React.Component {
       console.log('state not defined or null');
       return;
     }
-  };
+  };*/
   //see all startEndDates
   handleSeeAllAvailabilities = event => {
     event.preventDefault();
@@ -116,13 +117,22 @@ export default class freeForm extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.startTime && this.state.endTime) {
+<<<<<<< HEAD
       let newDate = moment(this.state.date).format('YYYY/MM/DD');
+=======
+      let newDate = moment(this.state.date).format("YYYY/MM/DD");
+      let momentFormattedDate = moment(this.state.date).format();
+      let newIndexOfStartTime =
+        momentFormattedDate.substring(0, 11) + this.state.startTime + ":00";
+      let newIndexOfEndTime =
+        momentFormattedDate.substring(0, 11) + this.state.endTime + ":00";
+>>>>>>> master
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
           newDate,
-          this.state.startTime,
-          this.state.endTime
+          newIndexOfStartTime,
+          newIndexOfEndTime
         );
       } else {
       }
