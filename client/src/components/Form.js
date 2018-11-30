@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Form.css";
 import Calendar from "react-calendar";
 import API from "../utils/api";
+import ToDoForm from "./ToDoForm";
 import moment from "moment";
 import TodayAvails from "./formtodaylist/formtodaylist.js";
 import List from "./formtodaylist/list.js";
@@ -14,10 +15,7 @@ export default class freeForm extends React.Component {
     date: new Date(),
     startTime: "",
     endTime: "",
-    startend: [],
-    title: "",
-    task: "",
-    deadline: ""
+    startend: []
   };
   // componentDidMount() {
   //   this.todaysAvailabilities();
@@ -34,15 +32,12 @@ export default class freeForm extends React.Component {
     this.setState({ date });
     // this.todaysAvailabilities();
   };
-  saveUser = (a, b, c, d, e, f, g) => {
+  saveUser = (a, b, c, d) => {
     API.newUser({
       userEmail: a,
       date: b,
       startTime: c,
-      endTime: d,
-      title: e,
-      task: f,
-      deadline: g
+      endTime: d
     })
       // .then(() => {
       //   this.todaysAvailabilities();
@@ -218,9 +213,11 @@ export default class freeForm extends React.Component {
             </Form>
           </div>
 
-          <div className="col-6">
-            {/* add task form */}
-            <Form>
+          {/* <ToDoForm /> */}
+
+          {/* <div className="col-6"> */}
+          {/* add task form */}
+          {/* <Form>
               <FormGroup>
                 <div className="row addTask">
                   <div className="col-lg-8 title">
@@ -258,7 +255,7 @@ export default class freeForm extends React.Component {
                 </div>
               </FormGroup>
             </Form>
-          </div>
+          </div> */}
         </div>
       </div>
     );

@@ -1,21 +1,8 @@
-//require in schema models
-<<<<<<< HEAD
 const db = require("../models/export.js");
 const moment = require("moment");
 let today = moment().startOf("day");
 let tomorrow = moment(today).endOf("day");
 
-=======
-<<<<<<< HEAD
-const db = require('../models/export.js');
-const moment = require('moment');
-let today = moment().startOf('day');
-let tomorrow = moment(today).endOf('day');
-
-=======
-const db = require("../models/export.js");
->>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
->>>>>>> 178d25c88765038116955f9558b485c5ca715af1
 //creatung object to export
 module.exports = {
   //find everything
@@ -65,38 +52,15 @@ module.exports = {
         }
       });
   },
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 178d25c88765038116955f9558b485c5ca715af1
   //find one userEMail
   findOnePerson: function(req, res) {
     db.myCalendar
       .find({ userEmail: req.query.userEmail })
-<<<<<<< HEAD
-=======
-=======
-
-  newTask: function(req, res) {
-    db.toDo
-      .create({
-        email: req.body.email,
-        date: req.body.date,
-        title: req.body.title,
-        task: req.body.task,
-        deadline: req.body.deadline
-      })
->>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
->>>>>>> 178d25c88765038116955f9558b485c5ca715af1
       .then(success => {
         res.json(success);
       })
       .catch(error => {
         if (error) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 178d25c88765038116955f9558b485c5ca715af1
           res.status(422).json(error);
         }
       });
@@ -108,10 +72,45 @@ module.exports = {
         userEmail: req.query.userEmail,
         date: req.query.date
       })
-<<<<<<< HEAD
-=======
-=======
-          res.status(500).json(error);
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
+        }
+      });
+  },
+
+  newTask: function(req, res) {
+    db.toDo
+      .create({
+        email: req.body.email,
+        date: req.body.date,
+        title: req.body.title,
+        task: req.body.task,
+        deadline: req.body.deadline
+      })
+
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
+        }
+      });
+  },
+  //find by the email and Date
+  findTodaysEvent: function(req, res) {
+    db.myCalendar
+      .find({
+        userEmail: req.query.userEmail,
+        date: req.query.date
+      })
+      .catch(error => {
+        if (error) {
+          res.status(422).json(error);
         }
       });
   },
@@ -139,8 +138,6 @@ module.exports = {
           deadline: req.body.deadline
         }
       )
->>>>>>> 86f9830a9ca024c678cbbd165e188467ceae32dd
->>>>>>> 178d25c88765038116955f9558b485c5ca715af1
       .then(success => {
         res.json(success);
       })

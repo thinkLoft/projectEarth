@@ -21,18 +21,6 @@ let calendarSchema = new Schema({
     type: String,
     required: true
   },
-  title: {
-    type: String,
-    required: true
-  },
-  task: {
-    type: String,
-    required: true
-  },
-  deadline: {
-    type: String,
-    required: true
-  },
   //nice to haves
   masterCalendar: [
     {

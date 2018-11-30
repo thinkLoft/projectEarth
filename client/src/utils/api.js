@@ -14,6 +14,9 @@ export default {
   updateDate: function(id, data) {
     return axios.put("/api/personal/mycalendar/update" + id, data);
   },
+  newTask: function(data) {
+    return axios.post("/api/personal/todos", data);
+  },
   //Find all of the to dos in the database
   findAllToDos: function() {
     return axios.get("/api/personal/todos");

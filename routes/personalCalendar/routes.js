@@ -1,16 +1,23 @@
 //require in router
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const personalCalendar = require('../../controllers/controller.js');
+const personalCalendar = require("../../controllers/controller.js");
 //for mvp
 //create userEmail and one startDate and one endDate
 router
-  .post('/', personalCalendar.newUser)
-  .get('/', personalCalendar.findEverything);
-router.get('/events', personalCalendar.findTodaysEvent);
-router.get('/one', personalCalendar.findOnePerson);
+  .post("/", personalCalendar.newUser)
+  .get("/", personalCalendar.findEverything);
+router.get("/events", personalCalendar.findTodaysEvent);
+router.get("/one", personalCalendar.findOnePerson);
 //update userEmail's startDate and endDate
-router.post('/update/:userEmail', personalCalendar.update);
+router.post("/update/:userEmail", personalCalendar.update);
+
+router
+  .post("/todos", personalCalendar.newTask)
+  .get("/todos", personalCalendar.findAllToDos);
+//Update the task in the db
+router.post("/update/:email", personalCalendar.update);
+
 module.exports = router;
 
 /*//hit backend route /
