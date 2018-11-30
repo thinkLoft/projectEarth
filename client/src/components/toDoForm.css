@@ -1,0 +1,14 @@
+#task-details {
+  height: 250px;
+  width: 400px;
+}
+
+#title,
+#deadline {
+  width: 400px;
+}
+
+#email,
+#date {
+  display: none;
+}

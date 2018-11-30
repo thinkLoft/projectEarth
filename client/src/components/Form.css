@@ -17,11 +17,19 @@
 #todayDate,
 #startTime,
 #endTime,
-#task-title,
-#exampleFormControlTextarea1 {
+#title,
+#deadline {
   width: 300px;
 }
 
+<<<<<<< HEAD
+#task {
+  height: 250px;
+  width: 300px;
+}
+
+=======
+>>>>>>> master
 h2 {
   width: 300px;
   margin-top: 10px;
