@@ -8,7 +8,6 @@ import moment from 'moment';
 export default class freeForm extends React.Component {
   state = {
     email: this.props.email,
-    // uid: this.props.uid,
     date: new Date(),
     startTime: '',
     endTime: '',
@@ -27,17 +26,19 @@ export default class freeForm extends React.Component {
   // for Calendar
   onChange = date => {
     this.setState({ date });
-    this.todaysAvailabilities();
+    //this.todaysAvailabilities();
   };
-  saveUser = (a, b, c, d) => {
+  saveUser = (a, b, c, d, e) => {
     API.newUser({
       userEmail: a,
-      date: b,
-      startTime: c,
-      endTime: d
+      title: b,
+      date: c,
+      startTime: d,
+      endTime: e
     })
-      .then(() => {
-        this.todaysAvailabilities();
+      .then(data => {
+        //this.todaysAvailabilities();
+        console.log(data);
       })
       .catch(error => {
         if (error) {
@@ -123,9 +124,11 @@ export default class freeForm extends React.Component {
         momentFormattedDate.substring(0, 11) + this.state.startTime + ':00';
       let newIndexOfEndTime =
         momentFormattedDate.substring(0, 11) + this.state.endTime + ':00';
+      const myFreeTime = 'MyFreeTime';
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
+          myFreeTime,
           newDate,
           newIndexOfStartTime,
           newIndexOfEndTime

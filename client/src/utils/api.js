@@ -31,5 +31,12 @@ export default {
   },
   saveTask: function(data) {
     return axios.post('/api/personal/mycalendar/todos', data);
+  },
+  findOneTodos: function(data) {
+    return axios.get('/api/personal/mycalendar/one/todos', {
+      params: {
+        email: data.email
+      }
+    });
   }
 };

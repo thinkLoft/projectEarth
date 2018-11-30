@@ -23,6 +23,7 @@ module.exports = {
     db.myCalendar
       .create({
         userEmail: req.body.userEmail,
+        title: req.body.title,
         date: req.body.date,
         startTime: req.body.startTime,
         endTime: req.body.endTime
@@ -99,6 +100,17 @@ module.exports = {
         if (error) {
           res.status(422).json(error);
         }
+      });
+  },
+  //find one persons tasks
+  findOneTodos: function(req, res) {
+    db.todo
+      .find({ email: req.query.email })
+      .then(success => {
+        res.json(success);
+      })
+      .catch(error => {
+        res.status(422).json(error);
       });
   },
   //find by the email and Date

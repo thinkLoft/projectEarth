@@ -1,5 +1,5 @@
 //require in mongoose npm
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //create calendar Schema
 let calendarSchema = new Schema({
@@ -9,6 +9,7 @@ let calendarSchema = new Schema({
     //unique: true,
     required: true
   },
+  title: { type: String, required: true },
   date: {
     type: Date,
     required: true
@@ -25,11 +26,11 @@ let calendarSchema = new Schema({
   masterCalendar: [
     {
       type: Schema.Types.ObjectId,
-      ref: "masterCalendar"
+      ref: 'masterCalendar'
     }
   ]
 });
-const myCalendar = mongoose.model("myCalendar", calendarSchema);
+const myCalendar = mongoose.model('myCalendar', calendarSchema);
 module.exports = myCalendar;
 
 /*//require in mongoose npm package
