@@ -7,6 +7,14 @@ import todo from "./images/todo.jpg";
 
 const LandingPage = () => (
   <div id="landing">
+    <div class="jumbotron">
+      <div class="row heading">
+        <h3>Free Time</h3>
+      </div>
+      <div class="row heading">
+        <p id="subHeading">Scheduling Simplified</p>
+      </div>
+    </div>
     <div className="row explanation">
       <div className="col-3">
         <div className="card">

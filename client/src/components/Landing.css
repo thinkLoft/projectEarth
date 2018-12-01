@@ -40,3 +40,27 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+h3{
+  font-family: 'Pacifico', cursive;
+  font-size: 60px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: end;
+}
+
+
+.heading{
+  background-color: rgba(142, 196, 231, 0.5);
+  background-size: cover;
+  height: 100px;
+  margin-top: 0px;
+}
+
+#subHeading{
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: end;
+}
