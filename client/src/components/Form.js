@@ -12,7 +12,8 @@ export default class freeForm extends React.Component {
     date: new Date(),
     startTime: "",
     endTime: "",
-    startend: []
+    startend: [],
+    title: ""
   };
   componentDidMount() {
     this.todaysAvailabilities();
@@ -29,12 +30,13 @@ export default class freeForm extends React.Component {
     this.setState({ date });
     this.todaysAvailabilities();
   };
-  saveUser = (a, b, c, d) => {
+  saveUser = (a, b, c, d, e) => {
     API.newUser({
       userEmail: a,
       date: b,
       startTime: c,
-      endTime: d
+      endTime: d,
+      title: e
     })
       .then(() => {
         this.todaysAvailabilities();
@@ -81,27 +83,6 @@ export default class freeForm extends React.Component {
       });
   };
 
-  //see all todays availabilities
-  /* handletodayAvailabilities = event => {
-    event.preventDefault();
-    if (
-      this.state.email !== null &&
-      this.state.email !== "undefined" &&
-      this.state.date !== null
-    ) {
-      console.log("hello from today");
-      let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
-
-      if (todaysDate !== null) {
-        //this.todaysAvailabilities(todaysEmail, todaysDate);
-        console.log("test");
-        //this.allMyAvailabilties(this.state.email);
-      }
-    } else {
-      console.log("state not defined or null");
-      return;
-    }
-  };*/
   //see all startEndDates
   handleSeeAllAvailabilities = event => {
     event.preventDefault();
@@ -128,7 +109,8 @@ export default class freeForm extends React.Component {
           this.state.email,
           newDate,
           newIndexOfStartTime,
-          newIndexOfEndTime
+          newIndexOfEndTime,
+          this.state.title
         );
       } else {
       }
@@ -137,6 +119,62 @@ export default class freeForm extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
+      <div className="row">
+        <div className="container calendar-form">
+          {/* add freetime form */}
+          <Calendar
+            name="date"
+            onChange={this.onChange}
+            value={this.state.date}
+          />
+          <Form>
+            <FormGroup>
+              <div className="row">
+                <div className="col-lg-8 mycalendar">
+                  <h2>Add Event</h2>
+
+                  <Input
+                    id="myEmail"
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    name="email"
+                    placeholder="email@example.com"
+                  />
+
+                  <Input
+                    id="todayDate"
+                    type="text"
+                    placeholder={this.state.date}
+                    name="date"
+                  />
+                  <Label for="title">Task / FreeTime</Label>
+                  <Input
+                    type="text"
+                    name="title"
+                    id="title"
+                    onChange={this.handleInputChange}
+                    value={this.state.title}
+                    placeholder="title"
+                  />
+                  <Label for="startTime">Start</Label>
+                  <Input
+                    type="time"
+                    name="startTime"
+                    id="startTime"
+                    onChange={this.handleInputChange}
+                    value={this.state.startTime}
+                    placeholder="00:00"
+                  />
+                  <Label for="endTime">End</Label>
+                  <Input
+                    type="time"
+                    name="endTime"
+                    id="endTime"
+                    placeholder="00:00"
+                    onChange={this.handleInputChange}
+                  />
+=======
       <div className="container calendar-form">
         {/* add freetime form */}
         <Calendar
@@ -258,13 +296,19 @@ export default class freeForm extends React.Component {
                       placeholder="00:00"
                       onChange={this.handleInputChange}
                     />
+>>>>>>> master
 
-                    <Button className="submit">Add Task</Button>
-                  </div>
+                  <Button
+                    className="submit"
+                    disabled={!(this.state.startTime && this.state.endTime)}
+                    onClick={this.handleFormSubmit}
+                  >
+                    Ad Freetime
+                  </Button>
                 </div>
-              </FormGroup>
-            </Form>
-          </div>
+              </div>
+            </FormGroup>
+          </Form>
         </div>
       </div>
     );
