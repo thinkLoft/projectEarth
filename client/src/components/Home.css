@@ -4,6 +4,18 @@
   height: 100%;
 }
 
+.jumbotron {
+  margin-bottom: 0px;
+  background-image: url(./images/organization.jpg);
+  background-position: 0% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+  /* text-shadow: black 0.3em 0.3em 0.3em; */
+  height: 400px;
+  width: 100%;
+}
+
 .explanation{
 padding: 25px;
  margin-left:-25px;
@@ -27,6 +39,30 @@ padding: 25px;
   opacity: 0;
   margin-left: -1px;
   transition: .5s ease;
+}
+
+h3{
+  font-family: 'Pacifico', cursive;
+  font-size: 60px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: end;
+}
+
+
+.heading{
+  background-color: rgba(142, 196, 231, 0.5);
+  background-size: cover;
+  height: 100px;
+  margin-top: 0px;
+}
+
+#subHeading{
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: end;
 }
 
 .text {
