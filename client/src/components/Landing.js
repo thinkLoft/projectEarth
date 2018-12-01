@@ -1,7 +1,7 @@
 import React from 'react';
 import './Landing.css';
-import availability from './images/availability.png';
-import availabilityInput from './images/availabilityInput.png';
+import availability from './images/availability.jpg';
+import availabilityInput from './images/availabilityInput.jpg';
 import mutual from './images/mutual.jpg';
 import todo from "./images/todo.jpg";
 

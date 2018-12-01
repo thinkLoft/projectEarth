@@ -1,12 +1,21 @@
 import React from 'react';
 import './Home.css';
-import availability from './images/availability.png';
-import availabilityInput from './images/availabilityInput.png';
+import availability from './images/availability.jpg';
+import availabilityInput from './images/availabilityInput.jpg';
 import mutual from './images/mutual.jpg';
 import todo from "./images/todo.jpg";
+import organization from "./images/organization.jpg";
 
 const HomePage = ({ authUser }) => (
   <div id="home">
+    <div class="jumbotron">
+      <div class="row heading">
+        <h3>Free Time</h3>
+      </div>
+      <div class="row heading">
+        <p id="subHeading">Scheduling Simplified</p>
+      </div>
+    </div>
     <div className="row explanation">
       <div className="col-3">
         <div className="card">
@@ -95,6 +104,7 @@ const HomePage = ({ authUser }) => (
           </div>
         </div>
       </div>
+
     </div>
   </div>
 );

@@ -4,8 +4,6 @@ import "./Form.css";
 import Calendar from "react-calendar";
 import API from "../utils/api";
 import moment from "moment";
-import TodayAvails from "./formtodaylist/formtodaylist.js";
-import List from "./formtodaylist/list.js";
 
 export default class freeForm extends React.Component {
   state = {
@@ -149,6 +147,7 @@ export default class freeForm extends React.Component {
                     <h2>Add Free Time</h2>
                     <br></br>
                     <Label for="email">Email</Label>
+
                     <Input
                       id="myEmail"
                       value={this.state.email}
@@ -156,7 +155,7 @@ export default class freeForm extends React.Component {
                       name="email"
                       placeholder="email@example.com"
                     />
-                    <Label for="date">Date</Label>
+
                     <Input
                       id="todayDate"
                       type="text"
@@ -187,7 +186,7 @@ export default class freeForm extends React.Component {
                       onClick={this.handleFormSubmit}
                     >
                       Ad Freetime
-                </Button>
+                    </Button>
                   </div>
                   {/* <div className="col-md-4 seeingAllEvents">
                     <div className="buttonEvents">
@@ -222,10 +221,13 @@ export default class freeForm extends React.Component {
                     <h2>Add a Task</h2>
                     <br></br>
                     <Label for="title">Title</Label>
-                    <Input id="task-title"
-                    />
+                    <Input id="task-title" />
                     <label for="exampleFormControlTextarea1">Details</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                    />
                     <Label for="date">Date</Label>
                     <Input
                       id="todayDate"
@@ -251,11 +253,7 @@ export default class freeForm extends React.Component {
                       onChange={this.handleInputChange}
                     />
 
-                    <Button
-                      className="submit"
-                    >
-                      Add Task
-                </Button>
+                    <Button className="submit">Add Task</Button>
                   </div>
                 </div>
               </FormGroup>
@@ -263,7 +261,6 @@ export default class freeForm extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
