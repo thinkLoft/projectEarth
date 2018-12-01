@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
-import 'moment/locale/nb';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import API from '../../utils/api.js';
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
+import "moment/locale/nb";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import API from "../../utils/api.js";
 
-moment.locale('en-us');
+moment.locale("en-ca");
 const localizer = BigCalendar.momentLocalizer(moment);
 
 class AvailabilityPage extends Component {
@@ -19,6 +19,7 @@ class AvailabilityPage extends Component {
   convertDate = date => {
     return moment.utc(date).toDate();
   };
+
   componentDidMount() {
     API.findOne({ userEmail: this.state.email })
       .then(response => {
@@ -39,21 +40,6 @@ class AvailabilityPage extends Component {
         console.log(error);
       });
   }
-  eventStyleGetter = (event, startTime, endTime, isSelected) => {
-    console.log(event);
-    let backgroundColor = '#5f797a' + event.hexColor;
-    let style = {
-      backgroundColor: backgroundColor,
-      borderRadius: '0px',
-      opacity: 0.8,
-      color: 'black',
-      border: '0px',
-      display: 'block'
-    };
-    return {
-      style: style
-    };
-  };
   render() {
     const { cal_events } = this.state;
 
@@ -68,11 +54,8 @@ class AvailabilityPage extends Component {
             events={cal_events}
             step={30}
             defaultView="month"
-            views={['month', 'week', 'day']}
+            views={["month", "week", "day"]}
             defaultDate={new Date()}
-            onSelectSlot={this.slotSelected}
-            onSelectEvent={this.eventSelected}
-            eventPropGetter={this.eventStyleGetter}
             startAccessor="startTime"
             endAccessor="endTime"
           />
