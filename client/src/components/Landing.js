@@ -1,17 +1,17 @@
-import React from 'react';
-import './Landing.css';
-import availability from './images/availability.jpg';
-import availabilityInput from './images/availabilityInput.jpg';
-import mutual from './images/mutual.jpg';
+import React from "react";
+import "./Landing.css";
+import availability from "./images/availability.jpg";
+import availabilityInput from "./images/availabilityInput.jpg";
+import mutual from "./images/mutual.jpg";
 import todo from "./images/todo.jpg";
 
 const LandingPage = () => (
   <div id="landing">
-    <div class="jumbotron">
-      <div class="row heading">
+    <div className="jumbotron">
+      <div className="row heading">
         <h3>Free Time</h3>
       </div>
-      <div class="row heading">
+      <div className="row heading">
         <p id="subHeading">Scheduling Simplified</p>
       </div>
     </div>
@@ -73,8 +73,8 @@ const LandingPage = () => (
             <div className="card-body">
               <h5 className="card-title">View your availability</h5>
               <p className="card-text">
-                See the layout of your day in detail as you input your tasks and free
-                time.
+                See the layout of your day in detail as you input your tasks and
+                free time.
               </p>
             </div>
           </div>

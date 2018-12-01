@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './Home.css';
 import availability from './images/availability.jpg';
@@ -5,6 +6,14 @@ import availabilityInput from './images/availabilityInput.jpg';
 import mutual from './images/mutual.jpg';
 import todo from './images/todo.jpg';
 import organization from './images/organization.jpg';
+=======
+import React from "react";
+import "./Home.css";
+import availability from "./images/availability.jpg";
+import availabilityInput from "./images/availabilityInput.jpg";
+import mutual from "./images/mutual.jpg";
+import todo from "./images/todo.jpg";
+>>>>>>> master
 
 const HomePage = ({ authUser }) => (
   <div id="home">
