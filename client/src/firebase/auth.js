@@ -1,4 +1,4 @@
-import { auth } from "./firebase";
+import { auth } from './firebase';
 
 // Sign Up
 export const doCreateUserWithEmailAndPassword = (email, password) =>
@@ -28,6 +28,6 @@ auth.onAuthStateChanged(user => {
     console.log(`Current User: ${user.email}`);
   } else {
     // No user is signed in.
-    console.log("user login status: There is no logged in user");
+    console.log('user login status: There is no logged in user');
   }
 });
