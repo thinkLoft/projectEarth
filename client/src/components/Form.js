@@ -104,11 +104,9 @@ export default class freeForm extends React.Component {
         momentFormattedDate.substring(0, 11) + this.state.startTime + ':00';
       let newIndexOfEndTime =
         momentFormattedDate.substring(0, 11) + this.state.endTime + ':00';
-      const myFreeTime = 'myfreetime';
       if (this.state.startTime < this.state.endTime) {
         this.saveUser(
           this.state.email,
-          myFreeTime,
           newDate,
           newIndexOfStartTime,
           newIndexOfEndTime,
@@ -123,6 +121,7 @@ export default class freeForm extends React.Component {
           title: ''
         });
       } else {
+        console.log('not submitted');
       }
     }
   };
