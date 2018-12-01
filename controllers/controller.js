@@ -1,3 +1,4 @@
+//require in schema models
 const db = require('../models/export.js');
 const moment = require('moment');
 let today = moment().startOf('day');
@@ -23,7 +24,6 @@ module.exports = {
     db.myCalendar
       .create({
         userEmail: req.body.userEmail,
-        title: req.body.title,
         date: req.body.date,
         startTime: req.body.startTime,
         endTime: req.body.endTime
@@ -73,83 +73,6 @@ module.exports = {
         userEmail: req.query.userEmail,
         date: req.query.date
       })
-      .then(success => {
-        res.json(success);
-      })
-      .catch(error => {
-        if (error) {
-          res.status(422).json(error);
-        }
-      });
-  },
-
-  newTask: function(req, res) {
-    db.todo
-      .create({
-        email: req.body.email,
-        date: req.body.date,
-        title: req.body.title,
-        task: req.body.task,
-        deadline: req.body.deadline
-      })
-
-      .then(success => {
-        res.json(success);
-      })
-      .catch(error => {
-        if (error) {
-          res.status(422).json(error);
-        }
-      });
-  },
-  //find one persons tasks
-  findOneTodos: function(req, res) {
-    db.todo
-      .find({ email: req.query.email })
-      .then(success => {
-        res.json(success);
-      })
-      .catch(error => {
-        res.status(422).json(error);
-      });
-  },
-  //find by the email and Date
-  findTodaysEvent: function(req, res) {
-    db.myCalendar
-      .find({
-        userEmail: req.query.userEmail,
-        date: req.query.date
-      })
-      .catch(error => {
-        if (error) {
-          res.status(422).json(error);
-        }
-      });
-  },
-
-  findAllToDos: function(req, res) {
-    db.toDo
-      .find()
-      .then(success => {
-        res.json(success);
-      })
-      .catch(error => {
-        if (error) {
-          res.status(422).json(error + ' error');
-        }
-      });
-  },
-
-  updateToDos: function(req, res) {
-    db.toDo
-      .update(
-        { email: req.params.email },
-        {
-          title: req.body.title,
-          task: req.body.task,
-          deadline: req.body.deadline
-        }
-      )
       .then(success => {
         res.json(success);
       })

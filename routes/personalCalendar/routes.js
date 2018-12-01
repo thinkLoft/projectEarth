@@ -11,14 +11,6 @@ router.get('/events', personalCalendar.findTodaysEvent);
 router.get('/one', personalCalendar.findOnePerson);
 //update userEmail's startDate and endDate
 router.post('/update/:userEmail', personalCalendar.update);
-
-router
-  .post('/todos', personalCalendar.newTask)
-  .get('/todos', personalCalendar.findAllToDos);
-router.get('/one/todos', personalCalendar.findOneTodos);
-//Update the task in the db
-router.post('/update/:email', personalCalendar.update);
-
 module.exports = router;
 
 /*//hit backend route /
