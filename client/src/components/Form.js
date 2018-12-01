@@ -112,6 +112,14 @@ export default class freeForm extends React.Component {
           newIndexOfEndTime,
           this.state.title
         );
+        // clear form
+        this.setState({
+          date: new Date(),
+          startTime: "",
+          endTime: "",
+          startend: [],
+          title: ""
+        });
       } else {
       }
     }
