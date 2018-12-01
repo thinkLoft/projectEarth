@@ -9,6 +9,10 @@ let calendarSchema = new Schema({
     //unique: true,
     required: true
   },
+  title: {
+    type: String,
+    required: false
+  },
   date: {
     type: Date,
     required: true
