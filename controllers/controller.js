@@ -1,8 +1,8 @@
 //require in schema models
-const db = require('../models/export.js');
-const moment = require('moment');
-let today = moment().startOf('day');
-let tomorrow = moment(today).endOf('day');
+const db = require("../models/export.js");
+const moment = require("moment");
+let today = moment().startOf("day");
+let tomorrow = moment(today).endOf("day");
 
 //creatung object to export
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
       })
       .catch(error => {
         if (error) {
-          res.status(422).json(error + ' error');
+          res.status(422).json(error + " error");
         }
       });
   },
@@ -27,7 +27,8 @@ module.exports = {
         title: req.body.title,
         date: req.body.date,
         startTime: req.body.startTime,
-        endTime: req.body.endTime
+        endTime: req.body.endTime,
+        title: req.body.title
       })
       .then(success => {
         res.json(success);

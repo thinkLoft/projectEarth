@@ -12,7 +12,8 @@ export default class freeForm extends React.Component {
     date: new Date(),
     startTime: '',
     endTime: '',
-    startend: []
+    startend: [],
+    title: ''
   };
   componentDidMount() {
     this.todaysAvailabilities();
@@ -32,10 +33,10 @@ export default class freeForm extends React.Component {
   saveUser = (a, b, c, d, e) => {
     API.newUser({
       userEmail: a,
-      title: b,
-      date: c,
-      startTime: d,
-      endTime: e
+      date: b,
+      startTime: c,
+      endTime: d,
+      title: e
     })
       .then(() => {
         this.todaysAvailabilities();
@@ -82,27 +83,6 @@ export default class freeForm extends React.Component {
       });
   };
 
-  //see all todays availabilities
-  /* handletodayAvailabilities = event => {
-    event.preventDefault();
-    if (
-      this.state.email !== null &&
-      this.state.email !== "undefined" &&
-      this.state.date !== null
-    ) {
-      console.log("hello from today");
-      let todaysDate = moment(this.state.date).format("YYYY/MM/DD");
-
-      if (todaysDate !== null) {
-        //this.todaysAvailabilities(todaysEmail, todaysDate);
-        console.log("test");
-        //this.allMyAvailabilties(this.state.email);
-      }
-    } else {
-      console.log("state not defined or null");
-      return;
-    }
-  };*/
   //see all startEndDates
   handleSeeAllAvailabilities = event => {
     event.preventDefault();
@@ -131,7 +111,8 @@ export default class freeForm extends React.Component {
           myFreeTime,
           newDate,
           newIndexOfStartTime,
-          newIndexOfEndTime
+          newIndexOfEndTime,
+          this.state.title
         );
       } else {
       }
@@ -262,7 +243,13 @@ export default class freeForm extends React.Component {
                       onChange={this.handleInputChange}
                     />
 
-                    <Button className="submit">Add Task</Button>
+                    <Button
+                      className="submit"
+                      disabled={!(this.state.startTime && this.state.endTime)}
+                      onClick={this.handleFormSubmit}
+                    >
+                      Ad Freetime
+                    </Button>
                   </div>
                 </div>
               </FormGroup>
