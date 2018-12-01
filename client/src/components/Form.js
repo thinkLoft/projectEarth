@@ -185,7 +185,7 @@ export default class freeForm extends React.Component {
                       disabled={!(this.state.startTime && this.state.endTime)}
                       onClick={this.handleFormSubmit}
                     >
-                      Ad Freetime
+                      Add Freetime
                     </Button>
                   </div>
                   {/* <div className="col-md-4 seeingAllEvents">
